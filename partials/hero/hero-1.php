@@ -1,62 +1,106 @@
 <?php
 @session_start();
-include_once __DIR__ . '/../text.php';
-
-/* ==========================================
-   HERO SECTION — DYNAMIC PARALLAX VERSION
-   ========================================== */
-
-$heroTitle     = $HomeIntro['headline'] ?? "We Create. You Inspire.";
-$heroSub       = $HomeIntro['sub'] ?? "Next-Level Parallax & Performance.";
-$primaryCTA    = $HomeIntro['primaryCTA'] ?? "Contact Us";
-$secondaryCTA  = $HomeIntro['secondaryCTA'] ?? "Our Projects";
-$heroImage     = $HeroImages[0] ?? 'assets/images/hero/hero1.jpg';
+include_once __DIR__ . '/../../text.php';
+/**
+ * Hero Design 1 — "The Conversational Opener"
+ * Data source: text.php
+ */
+$heroHeadline = $HomeIntro['headline'];
+$heroSub      = $HomeIntro['sub'];
+$heroBullets  = $HomeIntro['bullets'];
+$primaryCTA   = $HomeIntro['primaryCTA'];
+$secondaryCTA = $HomeIntro['secondaryCTA'];
+$heroImageLg  = $HeroImages[0] ?? '';
+$heroImageMd  = $HeroImages[1] ?? $heroImageLg;
+$heroImageSm  = $HeroImages[2] ?? $heroImageMd;
+$schemaData = [
+    '@context'    => 'https://schema.org',
+    '@type'       => 'WebPage',
+    'name'        => $SEO['home']['title'],
+    'description' => $SEO['home']['description'],
+    'publisher'   => [
+        '@type' => 'Organization',
+        'name'  => $Company,
+        'url'   => $BaseURL,
+        'logo'  => [
+            '@type' => 'ImageObject',
+            'url'   => $BaseURL . '/assets/images/logo.svg',
+        ],
+    ],
+    'about'     => $heroHeadline,
+    'speakable' => [
+        '@type'       => 'SpeakableSpecification',
+        'cssSelector' => ['#hero1-title', '.hero-conversational__lead'],
+    ],
+];
 ?>
 
-<section class="hero-1 parallax-section" aria-label="Hero section">
-  <div class="hero-bg parallax-bg layer layer-bg" data-depth="0.15"
-       style="background-image:url('<?php echo $heroImage; ?>')"></div>
+<head>
+    <link rel="stylesheet" href="assets/css/root.css">
+    <link rel="stylesheet" href="assets/css/hero-1.css">
 
-  <!-- Partículas -->
-  <div class="hero-deco" aria-hidden="true">
-    <div class="blob blob-1 layer" data-depth="0.25"></div>
-    <div class="blob blob-2 layer" data-depth="0.4"></div>
-    <div class="blob blob-3 layer" data-depth="0.55"></div>
-  </div>
-
-  <div class="hero-overlay"></div>
-
-  <!-- Contenido dinámico -->
-  <div class="hero-content parallax-content layer" data-depth="0.8">
-    <div class="hero-inner">
-      <h1 class="hero-title" data-animate="fade-in">
-        <?php echo htmlspecialchars($heroTitle); ?>
-      </h1>
-
-      <p class="hero-sub" data-animate="slide-up">
-        <?php echo htmlspecialchars($heroSub); ?>
-      </p>
-
-      <div class="hero-ctas" data-animate="zoom-in">
-        <a href="contact.php" class="btn btn-primary" data-ripple>
-          <?php echo htmlspecialchars($primaryCTA); ?>
-        </a>
-        <a href="projects.php" class="btn btn-ghost" data-ripple>
-          <?php echo htmlspecialchars($secondaryCTA); ?>
-        </a>
-      </div>
-
-      <div class="hero-metrics" data-animate="slide-up">
-        <div class="metric">
-          <span class="metric-num" data-counter data-to="150" data-duration="1500">0</span><span class="metric-suf">+</span>
-          <span class="metric-label">Projects</span>
-        </div>
-        <div class="metric">
-          <span class="metric-num" data-counter data-to="98" data-duration="1500">0</span><span class="metric-suf">%</span>
-          <span class="metric-label">Satisfied Clients</span>
-        </div>
-      </div>
+</head>
+<section
+    class="hero-conversational"
+    id="hero-conversational"
+    aria-labelledby="hero1-title"
+    data-hero="conversational">
+    <div class="hero-conversational__media" data-anim="zoomIn">
+        <picture>
+            <source
+                srcset="<?php echo htmlspecialchars($heroImageLg, ENT_QUOTES, 'UTF-8'); ?>"
+                media="(min-width: 1024px)" />
+            <source
+                srcset="<?php echo htmlspecialchars($heroImageMd, ENT_QUOTES, 'UTF-8'); ?>"
+                media="(min-width: 640px)" />
+            <img
+                src="<?php echo htmlspecialchars($heroImageSm, ENT_QUOTES, 'UTF-8'); ?>"
+                alt="<?php echo htmlspecialchars($Company, ENT_QUOTES, 'UTF-8'); ?> project showcase"
+                width="1280"
+                height="720"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async" />
+        </picture>
     </div>
-  </div>
+    <header class="hero-conversational__content">
+        <p class="hero-conversational__eyebrow" data-anim="fade">
+            <?php echo htmlspecialchars($Experience, ENT_QUOTES, 'UTF-8'); ?> <!-- from text.php: $Experience -->
+        </p>
+        <h1
+            id="hero1-title"
+            class="hero-conversational__title"
+            data-hero-typing="<?php echo htmlspecialchars($heroHeadline, ENT_QUOTES, 'UTF-8'); ?>">
+            <span class="hero-conversational__typing" data-hero-typing-target></span>
+        </h1>
 
-  <b
+        <span class="hero-conversational__typing" data-hero-typing-target aria-hidden="true"></span>
+        <span class="sr-only"><?php echo htmlspecialchars($heroHeadline, ENT_QUOTES, 'UTF-8'); ?> <!-- from text.php: $HomeIntro['headline'] --></span>
+        </h1>
+        <p class="hero-conversational__lead" data-anim="slideUp">
+            <?php echo htmlspecialchars($heroSub, ENT_QUOTES, 'UTF-8'); ?> <!-- from text.php: $HomeIntro['sub'] -->
+        </p>
+        <ul class="hero-conversational__bullets" data-anim="slideUp" data-anim-group="hero1-bullets">
+            <?php foreach ($heroBullets as $bullet): ?>
+                <li><?php echo htmlspecialchars($bullet, ENT_QUOTES, 'UTF-8'); ?> <!-- from text.php: $HomeIntro['bullets'][] --></li>
+            <?php endforeach; ?>
+        </ul>
+        <div class="hero-conversational__cta" data-anim="fade">
+            <a
+                class="hero-conversational__btn hero-conversational__btn--primary"
+                href="<?php echo htmlspecialchars($BaseURL . '/contact', ENT_QUOTES, 'UTF-8'); ?>"
+                data-hover="pulse">
+                <?php echo htmlspecialchars($primaryCTA, ENT_QUOTES, 'UTF-8'); ?> <!-- from text.php: $HomeIntro['primaryCTA'] -->
+            </a>
+            <a
+                class="hero-conversational__btn hero-conversational__btn--ghost"
+                href="<?php echo htmlspecialchars($BaseURL . '/portfolio', ENT_QUOTES, 'UTF-8'); ?>"
+                data-hover="pulse">
+                <?php echo htmlspecialchars($secondaryCTA, ENT_QUOTES, 'UTF-8'); ?> <!-- from text.php: $HomeIntro['secondaryCTA'] -->
+            </a>
+        </div>
+    </header>
+    <script type="application/ld+json" class="hero-schema">
+        <?php echo json_encode($schemaData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
+    </script>
+</section>

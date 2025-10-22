@@ -1,239 +1,169 @@
-/* =========================================================
-   HERO 1 — Full Parallax + Dynamic Particles
-   ========================================================= */
-:root {
-  --blob-size: clamp(280px, 25vw, 460px);
-  --blur-intensity: 60px;
-  --blob-opacity: 0.28;
-  --overlay-strength: 0.45;
-}
-
-.hero-1 {
+/* Hero 1 – Conversational Opener (versión mejorada) */
+.hero-conversational {
   position: relative;
-  min-height: 92vh;
   display: grid;
-  place-items: center;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  gap: clamp(3rem, 5vw, 6rem);
+  padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 6vw, 6rem);
+  background: linear-gradient(140deg, var(--color-secondary) 20%, #1b5367 100%);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-hard);
   overflow: hidden;
   color: var(--color-light);
-  isolation: isolate;
 }
 
-.hero-bg {
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.9) contrast(1.05);
-}
-
-.hero-overlay {
+.hero-conversational::before {
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(15,23,42,0.4) 0%, rgba(15,23,42,0.85) 100%);
-  z-index: var(--z-bg);
+  background: radial-gradient(circle at 25% 30%, rgba(128, 237, 153, 0.18), transparent 70%);
+  z-index: 0;
 }
 
-/* ========= Partículas por CSS ========= */
-.hero-deco {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: var(--z-content);
-}
-
-.blob {
-  position: absolute;
-  width: var(--blob-size);
-  aspect-ratio: 1/1;
-  filter: blur(var(--blur-intensity));
-  opacity: var(--blob-opacity);
-  border-radius: 50%;
-  animation: floatBlob 10s ease-in-out infinite alternate;
-  will-change: transform;
-}
-@keyframes floatBlob {
-  from { transform: translate(0,0) scale(1); }
-  to { transform: translate(20px,-20px) scale(1.1); }
-}
-
-.blob-1 {
-  top: 15%;
-  left: 10%;
-  background: radial-gradient(circle at 30% 30%, var(--color-soft), transparent 70%);
-}
-.blob-2 {
-  bottom: 15%;
-  right: 12%;
-  background: radial-gradient(circle at 70% 70%, var(--color-accent), transparent 70%);
-}
-.blob-3 {
-  top: 30%;
-  right: 40%;
-  background: radial-gradient(circle at 40% 40%, var(--color-secondary), transparent 70%);
-}
-
-/* ========= Contenido ========= */
-.hero-content {
+.hero-conversational__media {
   position: relative;
-  z-index: var(--z-content);
+  z-index: 1;
+  max-width: 600px;
   width: 100%;
+  justify-self: center;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
 }
 
-.hero-inner {
-  max-width: 1080px;
-  margin-inline: auto;
-  padding: clamp(1rem, 4vw, 2rem);
+.hero-conversational__media img {
+  width: 80vw;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+/* TEXT CONTENT */
+.hero-conversational__content {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
   text-align: left;
+  justify-content: center;
+  max-width: 640px;
+  width: 100%;
+  margin-inline: auto;
 }
 
-.hero-title {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: clamp(2.4rem, 4vw, 4.5rem);
-  line-height: 1.1;
-  letter-spacing: 0.02em;
-}
-.hero-title .accent {
+.hero-conversational__eyebrow {
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--color-soft);
-  text-shadow: 0 3px 12px rgba(128,237,153,.4);
 }
 
-.hero-sub {
-  margin-top: 0.8rem;
-  font-size: clamp(1rem, 1.4vw, 1.2rem);
-  color: rgba(255,255,255,0.9);
-  max-width: 60ch;
+.hero-conversational__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 1.15;
+  color: #fff;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
-.hero-ctas {
-  margin-top: 1.2rem;
+.hero-conversational__typing {
+  display: inline-block;
+  border-right: 3px solid var(--color-accent);
+  padding-right: 0.2rem;
+  white-space: normal; /* ✅ Permite wrapping */
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.hero-conversational__lead {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 0.8rem;
+}
+
+.hero-conversational__bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-conversational__bullets li {
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.hero-conversational__bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 4px rgba(128, 237, 153, 0.18);
+}
+
+.hero-conversational__cta {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-top: 1.5rem;
 }
 
-.btn {
-  --pad: 0.9rem 1.4rem;
-  padding: var(--pad);
-  font-weight: 700;
+.hero-conversational__btn {
+  font-weight: 600;
   border-radius: var(--radius-md);
+  padding: 1rem 1.8rem;
   text-decoration: none;
   transition: var(--transition-fast);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
 }
-.btn-primary {
+
+.hero-conversational__btn--primary {
   background: var(--color-accent);
-  color: var(--color-dark);
-}
-.btn-ghost {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  backdrop-filter: blur(6px);
-  color: var(--color-light);
-}
-.btn:hover { transform: translateY(-1px); }
-
-/* ========= Métricas ========= */
-.hero-metrics {
-  display: flex;
-  gap: 2rem;
-  margin-top: 1.3rem;
-  flex-wrap: wrap;
-}
-.metric-num {
-  font-weight: 800;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  color: var(--color-light);
-}
-.metric-label {
-  display: block;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.85);
+  color: var(--color-secondary);
+  box-shadow: var(--shadow-soft);
 }
 
-/* ========= Scroll cue ========= */
-.scroll-cue {
-  position: absolute;
-  left: 50%;
-  bottom: 18px;
-  translate: -50% 0;
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.25);
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(6px);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  transition: var(--transition-fast);
-}
-.scroll-cue:hover {
+.hero-conversational__btn--primary:hover {
   transform: translateY(-3px);
-}
-.scroll-cue .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: var(--color-soft);
-  animation: cue 1.7s ease-in-out infinite;
-}
-@keyframes cue {
-  0%,100% { transform: translateY(-3px); opacity: .8; }
-  50% { transform: translateY(3px); opacity: 1; }
+  box-shadow: var(--shadow-hard);
 }
 
-/* ========= Progreso ========= */
-.scroll-progress {
-  position: absolute;
-  left: 0; top: 0;
-  height: 4px; width: 0%;
-  background: var(--color-accent);
-  z-index: var(--z-top);
+.hero-conversational__btn--ghost {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
 }
 
-/* ========= Responsive ========= */
-@media (max-width: 900px) {
-  .hero-inner { text-align: center; }
-  .hero-ctas { justify-content: center; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .blob { animation: none !important; }
-}
-/* ========= ANIMACIONES DE ENTRADA ========= */
-
-[data-animate].visible {
-  opacity: 1;
-  transform: none;
+.hero-conversational__btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Entradas base */
-[data-animate="fade-in"] {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-[data-animate="slide-up"] {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
-}
-[data-animate="zoom-in"] {
-  opacity: 0;
-  transform: scale(0.92);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-/* En pantalla */
-[data-animate="fade-in"].visible,
-[data-animate="slide-up"].visible,
-[data-animate="zoom-in"].visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* Partículas suaves al mover mouse */
-.hero-deco {
-  transition: transform 0.1s linear;
+/* RESPONSIVE FIXES */
+@media (max-width: 1024px) {
+  .hero-conversational {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-conversational__content {
+    align-items: center;
+  }
+  .hero-conversational__media {
+    order: -1;
+    max-width: 500px;
+  }
+  .hero-conversational__title {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+  }
 }
