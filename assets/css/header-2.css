@@ -1,0 +1,262 @@
+/* ==========================================================================
+   HEADER 2 — Aurora Creative (variable-based version)
+   Author: Maycoll Jaramillo
+   ========================================================================== */
+
+.header-creative {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-top);
+  background: var(--color-dark);
+  color: var(--color-light);
+  font-family: var(--font-body);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------- TOP BAR ---------- */
+.header-top {
+  background: var(--color-neutral);
+  font-size: 0.9rem;
+  padding: 0.4rem 0;
+}
+.header-top .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-top a {
+  color: var(--color-light);
+  opacity: 0.85;
+  text-decoration: none;
+  margin-right: 1rem;
+  transition: var(--transition-fast);
+}
+.header-top a:hover {
+  color: var(--color-accent-2, #38bdf8);
+}
+.social-links a {
+  margin-left: 0.7rem;
+}
+
+/* ---------- MAIN NAV ---------- */
+.header-main {
+  background: var(--color-dark);
+  padding: 0.6rem 0;
+}
+.header-main .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.logo-center img {
+  height: 65px;
+  transition: transform 0.3s ease;
+}
+.logo-center img:hover {
+  transform: scale(1.05);
+}
+
+.nav-desktop {
+  text-align: center;
+  padding: 0.8rem 0;
+}
+.nav-desktop a {
+  color: var(--color-light);
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: var(--transition-fast);
+}
+.nav-desktop a:hover {
+  color: var(--color-accent-2, #38bdf8);
+  transform: translateY(-2px);
+}
+
+/* ---------- CTA & TOGGLE ---------- */
+.btn-cta {
+  background: var(--color-accent-2, #38bdf8);
+  color: var(--color-dark);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+.btn-cta:hover {
+  background: var(--color-soft);
+  transform: translateY(-1px);
+}
+.btn-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
+}
+.btn-cta:hover::before {
+  left: 100%;
+}
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--color-light);
+  border-radius: 2px;
+  transition: var(--transition-fast);
+}
+
+/* ---------- MOBILE MENU ---------- */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  display: none;
+  z-index: var(--z-overlay);
+}
+.mobile-menu.open {
+  display: block;
+  animation: fadeIn 0.25s ease;
+}
+.menu-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 80%;
+  max-width: 320px;
+  background: linear-gradient(180deg, var(--color-neutral), var(--color-dark));
+  color: var(--color-light);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.25);
+}
+.mobile-menu.open .menu-panel {
+  transform: translateX(0);
+}
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.menu-header img {
+  height: 50px;
+  border-radius: 50%;
+}
+.menu-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--color-light);
+  cursor: pointer;
+}
+.menu-nav {
+  flex-grow: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.menu-nav a {
+  color: var(--color-light);
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.8rem 0.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition-fast);
+}
+.menu-nav a:hover {
+  color: var(--color-accent-2, #38bdf8);
+}
+.menu-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1rem;
+  text-align: center;
+}
+.menu-footer a {
+  color: var(--color-light);
+  text-decoration: none;
+  font-weight: 600;
+}
+.menu-social a {
+  margin: 0 0.4rem;
+  color: var(--color-light);
+  transition: var(--transition-fast);
+}
+.menu-social a:hover {
+  color: var(--color-accent-2, #38bdf8);
+}
+
+/* ---------- ICONS + HOVER ANIMATIONS ---------- */
+.header-top i,
+.nav-desktop i,
+.btn-cta i,
+.menu-call i {
+  margin-right: 6px;
+  color: var(--color-accent-2, #38bdf8);
+}
+.social-links a,
+.menu-social a {
+  font-size: 1rem;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s;
+}
+.social-links a:hover,
+.menu-social a:hover {
+  transform: translateY(-3px) scale(1.1);
+  color: var(--color-accent-2, #38bdf8);
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.nav-link[data-animate="slide-up"] {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.6s ease forwards;
+}
+.nav-link:nth-child(1) { animation-delay: 0.1s; }
+.nav-link:nth-child(2) { animation-delay: 0.2s; }
+.nav-link:nth-child(3) { animation-delay: 0.3s; }
+.nav-link:nth-child(4) { animation-delay: 0.4s; }
+.nav-link:nth-child(5) { animation-delay: 0.5s; }
+.nav-link:nth-child(6) { animation-delay: 0.6s; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+  .nav-desktop { display: none; }
+  .menu-toggle { display: flex; }
+  .btn-cta { font-size: 0.9rem; padding: 0.5rem 0.9rem; }
+}
+@media (max-width: 480px) {
+  .header-top { display: none; }
+  .logo-center img { height: 55px; }
+}

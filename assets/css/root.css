@@ -1,0 +1,205 @@
+/* ============================================================
+   ROOT.CSS — GLOBAL THEME VARIABLES & PARALLAX ANIMATIONS
+   Palette: Cool Waters
+   Fonts: Montserrat + Open Sans
+   Designed for Tailwind Integration
+   Designed by  Maycoll Jaramillo
+   ============================================================ */
+
+:root {
+  /* === Brand Colors === */
+  --color-primary: #22577A;   /* Deep Blue */
+  --color-secondary: #38A3A5; /* Teal Ocean */
+  --color-accent: #57CC99;    /* Fresh Green */
+  --color-soft: #80ED99;      /* Mint Glow */
+  --color-light: #C7F9CC;     /* Soft Mint */
+  --color-dark: #0F172A;      /* Deep Navy */
+  --color-neutral: #1E293B;   /* Cool Neutral */
+
+  /* === Typography === */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* === Layout === */
+  --radius-lg: 1rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.25rem;
+
+  /* === Shadows === */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --shadow-hard: 0 8px 40px rgba(0, 0, 0, 0.25);
+
+  /* === Transitions === */
+  --transition-fast: all 0.25s ease-in-out;
+  --transition-medium: all 0.5s ease-in-out;
+  --transition-smooth: cubic-bezier(0.19, 1, 0.22, 1);
+
+  /* === Parallax & Scroll Depth === */
+  --depth-1: translateZ(10px) scale(1.05);
+  --depth-2: translateZ(20px) scale(1.1);
+  --depth-3: translateZ(30px) scale(1.15);
+
+  /* === Z-index === */
+  --z-bg: 1;
+  --z-content: 10;
+  --z-overlay: 50;
+  --z-top: 999;
+}
+
+/* ============================================================
+   BASE STYLE
+   ============================================================ */
+
+html, body {
+  font-family: var(--font-body);
+  background: var(--color-light);
+  color: var(--color-neutral);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-dark);
+}
+
+/* ============================================================
+   PARALLAX CONTAINERS
+   ============================================================ */
+
+.parallax-section {
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.parallax-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(-1px) scale(2);
+  z-index: var(--z-bg);
+  filter: brightness(0.8);
+}
+
+.parallax-content {
+  position: relative;
+  z-index: var(--z-content);
+  transform-style: preserve-3d;
+}
+
+/* ============================================================
+   SCROLL-BASED ANIMATIONS
+   ============================================================ */
+
+/* Fade In */
+[data-animate="fade-in"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition-medium);
+}
+[data-animate="fade-in"].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide Up */
+[data-animate="slide-up"] {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: var(--transition-smooth);
+}
+[data-animate="slide-up"].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Zoom In */
+[data-animate="zoom-in"] {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: var(--transition-medium);
+}
+[data-animate="zoom-in"].visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Float / Soft Motion */
+[data-animate="float"] {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(60px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+.bg-primary { background-color: var(--color-primary); color: var(--color-light); }
+.bg-secondary { background-color: var(--color-secondary); color: var(--color-light); }
+.bg-accent { background-color: var(--color-accent); color: var(--color-dark); }
+.bg-soft { background-color: var(--color-soft); }
+.bg-light { background-color: var(--color-light); }
+
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-accent { color: var(--color-accent); }
+.text-dark { color: var(--color-dark); }
+
+/* ============================================================
+   ANIMACIÓN SCROLL AUTO (JS OBSERVER)
+   ============================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s var(--transition-smooth);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   GRADIENTS
+   ============================================================ */
+
+.gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-soft));
+}
+
+/* ============================================================
+   DEPTH EFFECT (for Parallax Layers)
+   ============================================================ */
+
+.layer-1 { transform: var(--depth-1); }
+.layer-2 { transform: var(--depth-2); }
+.layer-3 { transform: var(--depth-3); }

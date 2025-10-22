@@ -1,0 +1,239 @@
+/* =========================================================
+   HERO 1 — Full Parallax + Dynamic Particles
+   ========================================================= */
+:root {
+  --blob-size: clamp(280px, 25vw, 460px);
+  --blur-intensity: 60px;
+  --blob-opacity: 0.28;
+  --overlay-strength: 0.45;
+}
+
+.hero-1 {
+  position: relative;
+  min-height: 92vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: var(--color-light);
+  isolation: isolate;
+}
+
+.hero-bg {
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.9) contrast(1.05);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,23,42,0.4) 0%, rgba(15,23,42,0.85) 100%);
+  z-index: var(--z-bg);
+}
+
+/* ========= Partículas por CSS ========= */
+.hero-deco {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-content);
+}
+
+.blob {
+  position: absolute;
+  width: var(--blob-size);
+  aspect-ratio: 1/1;
+  filter: blur(var(--blur-intensity));
+  opacity: var(--blob-opacity);
+  border-radius: 50%;
+  animation: floatBlob 10s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes floatBlob {
+  from { transform: translate(0,0) scale(1); }
+  to { transform: translate(20px,-20px) scale(1.1); }
+}
+
+.blob-1 {
+  top: 15%;
+  left: 10%;
+  background: radial-gradient(circle at 30% 30%, var(--color-soft), transparent 70%);
+}
+.blob-2 {
+  bottom: 15%;
+  right: 12%;
+  background: radial-gradient(circle at 70% 70%, var(--color-accent), transparent 70%);
+}
+.blob-3 {
+  top: 30%;
+  right: 40%;
+  background: radial-gradient(circle at 40% 40%, var(--color-secondary), transparent 70%);
+}
+
+/* ========= Contenido ========= */
+.hero-content {
+  position: relative;
+  z-index: var(--z-content);
+  width: 100%;
+}
+
+.hero-inner {
+  max-width: 1080px;
+  margin-inline: auto;
+  padding: clamp(1rem, 4vw, 2rem);
+  text-align: left;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 4vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+.hero-title .accent {
+  color: var(--color-soft);
+  text-shadow: 0 3px 12px rgba(128,237,153,.4);
+}
+
+.hero-sub {
+  margin-top: 0.8rem;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  color: rgba(255,255,255,0.9);
+  max-width: 60ch;
+}
+
+.hero-ctas {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn {
+  --pad: 0.9rem 1.4rem;
+  padding: var(--pad);
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-dark);
+}
+.btn-ghost {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  color: var(--color-light);
+}
+.btn:hover { transform: translateY(-1px); }
+
+/* ========= Métricas ========= */
+.hero-metrics {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.3rem;
+  flex-wrap: wrap;
+}
+.metric-num {
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--color-light);
+}
+.metric-label {
+  display: block;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+}
+
+/* ========= Scroll cue ========= */
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  translate: -50% 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.scroll-cue:hover {
+  transform: translateY(-3px);
+}
+.scroll-cue .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-soft);
+  animation: cue 1.7s ease-in-out infinite;
+}
+@keyframes cue {
+  0%,100% { transform: translateY(-3px); opacity: .8; }
+  50% { transform: translateY(3px); opacity: 1; }
+}
+
+/* ========= Progreso ========= */
+.scroll-progress {
+  position: absolute;
+  left: 0; top: 0;
+  height: 4px; width: 0%;
+  background: var(--color-accent);
+  z-index: var(--z-top);
+}
+
+/* ========= Responsive ========= */
+@media (max-width: 900px) {
+  .hero-inner { text-align: center; }
+  .hero-ctas { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blob { animation: none !important; }
+}
+/* ========= ANIMACIONES DE ENTRADA ========= */
+
+[data-animate].visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Entradas base */
+[data-animate="fade-in"] {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+[data-animate="slide-up"] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+[data-animate="zoom-in"] {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* En pantalla */
+[data-animate="fade-in"].visible,
+[data-animate="slide-up"].visible,
+[data-animate="zoom-in"].visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Partículas suaves al mover mouse */
+.hero-deco {
+  transition: transform 0.1s linear;
+}
