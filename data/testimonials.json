@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Daniel Rivera",
+    "text": "Sitio parallax impecable. Rápido y visualmente impactante. Nuestro SEO subió.",
+    "role": "CEO - Rivera Group",
+    "img": "assets/images/testimonials/t1.jpg"
+  },
+  {
+    "name": "Laura Gómez",
+    "text": "Excelente atención al detalle y rendimiento. Recomendados.",
+    "role": "Marketing Director - Luma Studio",
+    "img": "assets/images/testimonials/t2.jpg"
+  },
+  {
+    "name": "Carlos Mendez",
+    "text": "Transformaron nuestro sitio en una herramienta comercial real. Resultados inmediatos.",
+    "role": "Founder - CM Solutions",
+    "img": "assets/images/testimonials/t3.jpg"
+  }
+]
