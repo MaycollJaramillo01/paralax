@@ -3,7 +3,7 @@
   display: block;
   padding: clamp(3.5rem, 7vw, 6rem) clamp(2rem, 6vw, 7rem);
   background: linear-gradient(120deg, var(--color-dark), rgba(15, 23, 42, 0.92));
-  border-radius: var(--radius-lg);
+ 
   color: var(--color-light);
   overflow: hidden;
 }

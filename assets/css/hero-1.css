@@ -6,18 +6,21 @@
   align-items: center;
   gap: clamp(3rem, 5vw, 6rem);
   padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 6vw, 6rem);
-  background: linear-gradient(140deg, var(--color-secondary) 20%, #1b5367 100%);
+  /* Fondo: Gradiente entre Gris Oscuro y Negro Carbón Profundo (antes: --color-secondary y #1b5367) */
+  background: linear-gradient(140deg, var(--color-secondary, #333333) 20%, var(--color-primary, #1C1C1C) 100%);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-hard);
   overflow: hidden;
-  color: var(--color-light);
+  /* Color de texto claro (antes: --color-light) */
+  color: var(--color-light, #F5F5DC);
 }
 
 .hero-conversational::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 25% 30%, rgba(128, 237, 153, 0.18), transparent 70%);
+  /* Efecto orb: Usa el RGB de --color-soft (Oro Viejo Mate) con transparencia (antes: rgba(128, 237, 153, 0.18)) */
+  background: radial-gradient(circle at 25% 30%, rgba(184, 134, 11, 0.18), transparent 70%);
   z-index: 0;
 }
 
@@ -57,7 +60,8 @@
   font-size: 0.9rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-soft);
+  /* Color de acento suave (Oro Viejo Mate) */
+  color: var(--color-soft, #B8860B);
 }
 
 .hero-conversational__title {
@@ -65,16 +69,18 @@
   font-weight: 700;
   font-size: clamp(2.4rem, 5vw, 4.5rem);
   line-height: 1.15;
-  color: #fff;
+  /* Color de título claro (antes: #fff) */
+  color: var(--color-light, #F5F5DC);
   word-wrap: break-word;
   overflow-wrap: anywhere;
 }
 
 .hero-conversational__typing {
   display: inline-block;
-  border-right: 3px solid var(--color-accent);
+  /* Cursor: Borde con acento principal (Marrón Sello) */
+  border-right: 3px solid var(--color-accent, #8B4513);
   padding-right: 0.2rem;
-  white-space: normal; /* ✅ Permite wrapping */
+  white-space: normal;
   overflow: hidden;
   word-wrap: break-word;
 }
@@ -82,7 +88,8 @@
 .hero-conversational__lead {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.92);
+  /* Texto claro con transparencia, usando el RGB de --color-light (antes: rgba(255, 255, 255, 0.92)) */
+  color: rgba(245, 245, 220, 0.92);
   margin-bottom: 0.8rem;
 }
 
@@ -99,7 +106,8 @@
   position: relative;
   padding-left: 1.5rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.95);
+  /* Texto claro con transparencia, usando el RGB de --color-light (antes: rgba(255, 255, 255, 0.95)) */
+  color: rgba(245, 245, 220, 0.95);
 }
 
 .hero-conversational__bullets li::before {
@@ -110,8 +118,10 @@
   width: 0.55rem;
   height: 0.55rem;
   border-radius: 50%;
-  background: var(--color-accent);
-  box-shadow: 0 0 0 4px rgba(128, 237, 153, 0.18);
+  /* Viñeta: Acento principal (Marrón Sello) */
+  background: var(--color-accent, #8B4513);
+  /* Sombra: Usa el RGB de --color-soft (Oro Viejo Mate) con transparencia (antes: rgba(128, 237, 153, 0.18)) */
+  box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.18);
 }
 
 .hero-conversational__cta {
@@ -130,8 +140,9 @@
 }
 
 .hero-conversational__btn--primary {
-  background: var(--color-accent);
-  color: var(--color-secondary);
+  /* Fondo: Acento principal (Marrón Sello). Texto: Gris Oscuro */
+  background: var(--color-accent, #8B4513);
+  color: var(--color-secondary, #333333);
   box-shadow: var(--shadow-soft);
 }
 
@@ -142,12 +153,15 @@
 
 .hero-conversational__btn--ghost {
   background: transparent;
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
-  color: #fff;
+  /* Borde: RGB de --color-light con transparencia (antes: rgba(255, 255, 255, 0.5)) */
+  border: 1.5px solid rgba(245, 245, 220, 0.5);
+  /* Color de texto claro (antes: #fff) */
+  color: var(--color-light, #F5F5DC);
 }
 
 .hero-conversational__btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.1);
+  /* Fondo en hover: RGB de --color-light con transparencia (antes: rgba(255, 255, 255, 0.1)) */
+  background: rgba(245, 245, 220, 0.1);
 }
 
 /* RESPONSIVE FIXES */

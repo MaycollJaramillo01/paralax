@@ -1,9 +1,12 @@
+
+
 /* ====== HERO CANVAS (ph4-*) ====== */
 .ph4-hero{
   position:relative; overflow:hidden;
   min-height:clamp(560px, 80vh, 900px);
-  border-radius:24px;
-  background:#0b1d28; /* fallback si no carga canvas */
+  
+  /* Fondo principal oscuro (antes: #0b1d28) */
+  background:var(--color-primary); 
   isolation:isolate;
   display:grid; place-items:center;
 }
@@ -16,25 +19,37 @@
 
 .ph4-scrim{
   position:absolute; inset:0; z-index:0; pointer-events:none;
+  /* El scrim ahora usa tonos oscuros primarios para el gradiente */
   background:
-    radial-gradient(70% 60% at 30% 30%, rgba(10,30,35,.55), transparent 60%),
-    linear-gradient(140deg, rgba(5,14,18,.65), rgba(5,14,18,.25));
+    radial-gradient(70% 60% at 30% 30%, 
+      /* Tonos oscuros transparentes para la viñeta (antes: rgba(10,30,35,.55)) */
+      rgba(var(--color-primary-rgb, 28, 28, 28), .55), transparent 60%),
+    linear-gradient(140deg, 
+      /* Tonos oscuros profundos para el gradiente (antes: rgba(5,14,18,.65) y rgba(5,14,18,.25)) */
+      rgba(var(--color-dark-rgb, 10, 10, 10), .65), rgba(var(--color-dark-rgb, 10, 10, 10), .25));
 }
 
 .ph4-inner{
   position:relative; z-index:1;
   max-width:min(960px, 92vw);
   margin-inline:auto; text-align:center;
-  color:#eaf5f2; display:flex; flex-direction:column; gap:1.25rem;
+  /* Color de texto claro (antes: #eaf5f2) */
+  color:var(--color-light); 
+  display:flex; flex-direction:column; gap:1.25rem;
 }
 
 .ph4-eyebrow{
   margin:0; text-transform:uppercase; letter-spacing:.18em;
-  color:#8adbb6; font-size:.9rem;
+  /* Color de acento suave (antes: #8adbb6) */
+  color:var(--color-soft); 
+  font-size:.9rem;
 }
 
 .ph4-title{
-  margin:0; color:#fff; font-weight:800;
+  margin:0; 
+  /* Título siempre blanco o muy claro (antes: #fff) */
+  color:var(--color-light); 
+  font-weight:800;
   font-family:var(--font-heading, ui-sans-serif, system-ui);
   font-size:clamp(2.4rem, 6vw, 4.6rem);
   line-height:1.08; word-break:break-word;
@@ -43,7 +58,8 @@
 
 .ph4-sub{
   margin:0; font-size:1.125rem; line-height:1.7;
-  color:rgba(255,255,255,.92);
+  /* Subtítulo blanco transparente (antes: rgba(255,255,255,.92)) */
+  color:rgba(245, 245, 220, .92); /* Usando el RGB de --color-light */
 }
 
 .ph4-bullets{
@@ -57,7 +73,10 @@
 .ph4-bullets li::before{
   content:""; position:absolute; left:0; top:.6em;
   width:.55rem; height:.55rem; border-radius:999px;
-  background:#7ff0b8; box-shadow:0 0 0 6px rgba(127,240,184,.18);
+  /* Acento principal para la viñeta (antes: #7ff0b8) */
+  background:var(--color-accent); 
+  /* Sombra de viñeta usando el RGB del acento (antes: rgba(127,240,184,.18)) */
+  box-shadow:0 0 0 6px rgba(139, 69, 19, .18); 
 }
 
 .ph4-cta{
@@ -69,11 +88,18 @@
   transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 .ph4-btn--primary{
-  background:#7ff0b8; color:#0d2a25; box-shadow:0 10px 26px rgba(0,0,0,.28);
+  /* Botón Principal: Acento para fondo y oscuro para texto (antes: #7ff0b8 y #0d2a25) */
+  background:var(--color-accent); 
+  color:var(--color-dark); 
+  box-shadow:0 10px 26px rgba(0,0,0,.28);
 }
 .ph4-btn--primary:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(0,0,0,.35); }
+
 .ph4-btn--ghost{
-  color:#eaf5f2; border:1px solid rgba(255,255,255,.35); background:rgba(255,255,255,.08);
+  /* Botón Ghost: Claro para texto y fondo transparente (antes: #eaf5f2) */
+  color:var(--color-light); 
+  border:1px solid rgba(255,255,255,.35); 
+  background:rgba(255,255,255,.08);
 }
 .ph4-btn--ghost:hover{ background:rgba(255,255,255,.16); }
 

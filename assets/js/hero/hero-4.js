@@ -1,84 +1,68 @@
-// HERO-4 Quantum Canvas — integra ParallaxKit + ScrollAnim, spotlight reactivo y slider 3 imgs
 (function (w, d) {
   'use strict';
-  const root = d.querySelector('#hero-quantum');
-  if (!root) return;
+  const hero = d.getElementById('hero-4');
+  if (!hero) return;
 
-  // 1) Spotlight reactivo (actualiza CSS vars)
-  const spot = root.querySelector('.q-bg--spotlight');
-  root.addEventListener('pointermove', (e) => {
-    const rect = root.getBoundingClientRect();
-    const mx = ((e.clientX - rect.left) / rect.width) * 100;
-    const my = ((e.clientY - rect.top) / rect.height) * 100;
-    spot.style.setProperty('--mx', mx + '%');
-    spot.style.setProperty('--my', my + '%');
+  const slides = [...hero.querySelectorAll('.hero4__slide')];
+  const thumbs = [...hero.querySelectorAll('.hero4__thumb')];
+  const nextBtns = [...hero.querySelectorAll('.hero4__arrow.next')];
+  const prevBtns = [...hero.querySelectorAll('.hero4__arrow.prev')];
+
+  let index = 0;
+  const delay = 6000;
+  let timer = null;
+
+  function showSlide(n) {
+    slides[index].classList.remove('active');
+    thumbs[index].classList.remove('active');
+    index = (n + slides.length) % slides.length;
+
+    const img = slides[index].querySelector('img[data-src]');
+    if (img) {
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+    }
+
+    slides[index].classList.add('active');
+    thumbs[index].classList.add('active');
+  }
+
+  function nextSlide() { showSlide(index + 1); }
+  function prevSlide() { showSlide(index - 1); }
+
+  function start() {
+    stop();
+    timer = setInterval(nextSlide, delay);
+  }
+  function stop() {
+    if (timer) clearInterval(timer);
+  }
+
+  nextBtns.forEach(btn =>
+    btn.addEventListener('click', () => {
+      nextSlide();
+      start();
+    })
+  );
+  prevBtns.forEach(btn =>
+    btn.addEventListener('click', () => {
+      prevSlide();
+      start();
+    })
+  );
+
+  thumbs.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      showSlide(i);
+      start();
+    });
   });
 
-  // 2) Split headline en palabras con entrada escalonada
-  const title = root.querySelector('[data-split="words"]');
-  if (title && !title.dataset.splitted) {
-    const words = title.textContent.trim().split(/\s+/);
-    title.textContent = '';
-    words.forEach((wrd, i) => {
-      const span = d.createElement('span');
-      span.textContent = wrd + (i < words.length - 1 ? ' ' : '');
-      span.style.display = 'inline-block';
-      span.style.opacity = '0';
-      span.style.transform = 'translateY(16px)';
-      span.style.transition = `all .6s cubic-bezier(.16,.84,.38,1) ${i * 55}ms`;
-      title.appendChild(span);
-    });
-    title.dataset.splitted = '1';
-  }
+  hero.addEventListener('mouseenter', stop);
+  hero.addEventListener('mouseleave', start);
+  d.addEventListener('visibilitychange', () => (d.hidden ? stop() : start()));
 
-  // 3) Init Parallax + ScrollAnim (si existen); fallback para .in-view
-  if (w.ParallaxKit && typeof w.ParallaxKit.init === 'function') w.ParallaxKit.init();
-  if (w.ScrollAnim && typeof w.ScrollAnim.init === 'function') {
-    w.ScrollAnim.init();
-  } else {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('in-view');
-        if (e.target === title) {
-          // revela palabras escalonadas
-          requestAnimationFrame(() => {
-            title.querySelectorAll('span').forEach(s => {
-              s.style.opacity = '1'; s.style.transform = 'none';
-            });
-          });
-        }
-      });
-    }, { threshold: 0.3 });
-    root.querySelectorAll('[data-animate]').forEach(el => io.observe(el));
-  }
-
-  // 4) Cross-fade de 3 imágenes (si existen)
-  const img = root.querySelector('.q-img');
-  const dots = Array.from(root.querySelectorAll('.q-dots button'));
-  const sources = [img.dataset.src1, img.dataset.src2, img.dataset.src3].filter(Boolean);
-  if (sources.length > 1) {
-    let idx = 0, timer = null;
-    const go = (i) => {
-      idx = i % sources.length;
-      img.classList.add('is-fade');
-      setTimeout(() => {
-        img.src = sources[idx];
-        img.classList.remove('is-fade');
-        dots.forEach((d, j) => d.classList.toggle('is-active', j === idx));
-      }, 260);
-    };
-    timer = setInterval(() => go(idx + 1), 4500);
-    dots.forEach((d, j) => d.addEventListener('click', () => { clearInterval(timer); go(j); }));
-  }
-
-  // 5) Microinteracción: botones magnéticos
-  root.querySelectorAll('.q-btn').forEach(btn => {
-    btn.addEventListener('pointermove', (e) => {
-      const r = btn.getBoundingClientRect();
-      const x = ((e.clientX - r.left) / r.width - 0.5) * 6;
-      const y = ((e.clientY - r.top) / r.height - 0.5) * 6;
-      btn.style.transform = `translate(${x}px, ${y}px)`;
-    });
-    btn.addEventListener('pointerleave', () => btn.style.transform = '');
-  });
+  slides[0].classList.add('active');
+  thumbs[0].classList.add('active');
+  start();
 })(window, document);

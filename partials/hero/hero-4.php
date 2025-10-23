@@ -2,109 +2,50 @@
 @session_start();
 if (!isset($HomeIntro)) include_once __DIR__ . '/../../text.php';
 
-/**
- * HERO-4 "Quantum Canvas" — diseño propio
- * Motor: parallaxkit.js + scroll-anim.js (si existen)
- * CLS-safe, LCP optimizado, JSON-LD + speakable
- */
-
-$headline     = $HomeIntro['headline']     ?? 'Parallax Experiences that Convert';
-$sub          = $HomeIntro['sub']          ?? 'Experiencias inmersivas rápidas, accesibles y listas para producción.';
-$bullets      = $HomeIntro['bullets']      ?? ['Diseño responsive', 'SEO técnico', 'Core Web Vitals'];
-$primaryCTA   = $HomeIntro['primaryCTA']   ?? 'Request a Free Consultation';
-$secondaryCTA = $HomeIntro['secondaryCTA'] ?? 'See Our Work';
-$company      = $Company                   ?? 'Your Company';
-$baseURL      = $BaseURL                   ?? '/';
-$experience   = $Experience                ?? '10 Years of Experience';
-
-$img1 = $HeroImages[0] ?? 'assets/images/hero/hero1.jpg';
-$img2 = $HeroImages[1] ?? $img1;
-$img3 = $HeroImages[2] ?? $img2;
-
-$schemaData = [
-  '@context'    => 'https://schema.org',
-  '@type'       => 'WebPage',
-  'name'        => $SEO['home']['title'] ?? ($company.' | Parallax Web Design'),
-  'description' => $SEO['home']['description'] ?? $sub,
-  'publisher'   => ['@type'=>'Organization','name'=>$company,'url'=>$baseURL],
-  'about'       => $headline,
-  'speakable'   => ['@type'=>'SpeakableSpecification','cssSelector'=>['#hero4-title','.q-lead']],
-];
+$headline = $HomeIntro['headline'] ?? 'Parallax Websites that Convert';
+$sub      = $HomeIntro['sub'] ?? 'Creamos experiencias web inmersivas con rendimiento, accesibilidad y SEO listos para producción.';
+$cta1     = $HomeIntro['primaryCTA'] ?? 'Request a Free Consultation';
+$cta2     = $HomeIntro['secondaryCTA'] ?? 'See Our Work';
+$images   = $HeroImages ?? [];
+$baseURL  = $BaseURL ?? '';
 ?>
+<link rel="stylesheet" href="<?= htmlspecialchars($baseURL) ?>/assets/css/hero-4.css">
 
-<section
-  id="hero-quantum"
-  class="q-hero"
-  aria-labelledby="hero4-title"
-  data-hero="quantum"
-  data-parallax
-  data-scrub="true"
->
-  <!-- BG layers -->
-  <span class="q-bg q-bg--grid" aria-hidden="true"></span>
-  <span class="q-bg q-bg--spotlight" aria-hidden="true"></span>
-
-  <div class="q-wrap">
-    <!-- TEXT -->
-    <header class="q-content">
-      <p class="q-eyebrow" data-animate="fade-in"><?php echo htmlspecialchars($experience, ENT_QUOTES, 'UTF-8'); ?></p>
-
-      <h1 id="hero4-title" class="q-title" data-split="words" data-animate="slide-up">
-        <?php echo htmlspecialchars($headline, ENT_QUOTES, 'UTF-8'); ?>
-      </h1>
-
-      <p class="q-lead" data-animate="fade-in">
-        <?php echo htmlspecialchars($sub, ENT_QUOTES, 'UTF-8'); ?>
-      </p>
-
-      <ul class="q-bullets" data-animate="fade-in" data-anim-group="q-bullets">
-        <?php foreach ($bullets as $b): ?>
-          <li><?php echo htmlspecialchars($b, ENT_QUOTES, 'UTF-8'); ?></li>
-        <?php endforeach; ?>
-      </ul>
-
-      <div class="q-cta" data-animate="zoom-in">
-        <a class="q-btn q-btn--primary" href="<?php echo htmlspecialchars($baseURL . '/contact', ENT_QUOTES, 'UTF-8'); ?>" data-hover="pulse">
-          <?php echo htmlspecialchars($primaryCTA, ENT_QUOTES, 'UTF-8'); ?>
-        </a>
-        <a class="q-btn q-btn--ghost" href="<?php echo htmlspecialchars($baseURL . '/portfolio', ENT_QUOTES, 'UTF-8'); ?>">
-          <?php echo htmlspecialchars($secondaryCTA, ENT_QUOTES, 'UTF-8'); ?>
-        </a>
+<section class="hero4" id="hero-4">
+  <div class="hero4__slides">
+    <?php foreach ($images as $i => $src): ?>
+      <div class="hero4__slide<?= $i === 0 ? ' active' : '' ?>">
+        <img src="<?= $i === 0 ? htmlspecialchars($src) : '' ?>"
+          data-src="<?= htmlspecialchars($src) ?>"
+          alt="Slide <?= $i + 1 ?>" loading="<?= $i === 0 ? 'eager' : 'lazy' ?>" decoding="async">
       </div>
+    <?php endforeach; ?>
+  </div>
 
-      <ul class="q-trust" data-animate="fade-in" aria-label="Highlights">
-        <li>⚡ 95+ Lighthouse SEO</li>
-        <li>♿ Accessible-first</li>
-        <li>🚀 CWV Optimized</li>
-      </ul>
-    </header>
+  <div class="hero4__overlay"></div>
 
-    <!-- VISUAL -->
-    <div class="q-visual" data-parallax-mouse data-depth="0.35">
-      <div class="q-card" data-animate="zoom-in" data-parallax data-depth="0.18">
-        <img
-          class="q-img"
-          src="<?php echo htmlspecialchars($img1, ENT_QUOTES, 'UTF-8'); ?>"
-          data-src-1="<?php echo htmlspecialchars($img1, ENT_QUOTES, 'UTF-8'); ?>"
-          data-src-2="<?php echo htmlspecialchars($img2, ENT_QUOTES, 'UTF-8'); ?>"
-          data-src-3="<?php echo htmlspecialchars($img3, ENT_QUOTES, 'UTF-8'); ?>"
-          alt="<?php echo htmlspecialchars($company, ENT_QUOTES, 'UTF-8'); ?> project showcase"
-          width="1200" height="900"
-          loading="eager" fetchpriority="high" decoding="async"
-        />
-        <span class="q-ring q-ring--outer" aria-hidden="true"></span>
-        <span class="q-ring q-ring--inner" aria-hidden="true"></span>
-      </div>
-
-      <div class="q-dots" aria-label="Slides">
-        <button class="is-active" aria-label="Slide 1"></button>
-        <button aria-label="Slide 2"></button>
-        <button aria-label="Slide 3"></button>
-      </div>
+  <div class="hero4__content container">
+    <h1 class="hero4__title"><?= htmlspecialchars($headline) ?></h1>
+    <p class="hero4__sub"><?= htmlspecialchars($sub) ?></p>
+    <div class="hero4__cta">
+      <a href="<?= htmlspecialchars($baseURL . '/contact.php') ?>" class="hero4__btn hero4__btn--primary"><?= htmlspecialchars($cta1) ?></a>
+      <a href="<?= htmlspecialchars($baseURL . '/gallery.php') ?>" class="hero4__btn hero4__btn--ghost"><?= htmlspecialchars($cta2) ?></a>
     </div>
   </div>
 
-  <script type="application/ld+json"><?php
-    echo json_encode($schemaData, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
-  ?></script>
+  <div class="hero4__thumbs">
+    <div class="hero4__arrows">
+      <button class="hero4__arrow prev" aria-label="Previous slide">←</button>
+      <button class="hero4__arrow next" aria-label="Next slide">→</button>
+    </div>
+    <div class="hero4__thumbs-list">
+      <?php foreach ($images as $i => $src): ?>
+        <button class="hero4__thumb<?= $i === 0 ? ' active' : '' ?>" data-index="<?= $i ?>">
+          <img src="<?= htmlspecialchars($src) ?>" alt="Preview <?= $i + 1 ?>">
+        </button>
+      <?php endforeach; ?>
+    </div>
+  </div>
 </section>
+
+<script src="<?= htmlspecialchars($baseURL) ?>/assets/js/hero/hero-4.js" defer></script>

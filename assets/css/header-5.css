@@ -1,0 +1,139 @@
+/* ===== Header-5 PillNav (h5-*) ===== */
+/* REEMPLAZO DE VARIABLES DEL COMPONENTE A LA PALETA NEGRA/CAFÉ */
+:root {
+  /* Sustituye los tonos azules por los oscuros de la paleta base */
+  --h5-bg: var(--color-primary, #1C1C1C);         /* Fondo principal de la barra */
+  --h5-pill: var(--color-secondary, #333333);     /* Fondo de la pastilla */
+  --h5-pill-pressed: var(--color-dark, #0A0A0A);  /* Fondo de pastilla en hover/press */
+  --h5-text: var(--color-light, #F5F5DC);         /* Color de texto claro */
+  --h5-soft: var(--color-soft, #B8860B);          /* Color de acento suave (ej: focus) */
+  --h5-sep: rgba(245, 245, 220, .25);             /* Separador claro y transparente */
+  --h5-shadow: 0 10px 24px rgba(0, 0, 0, .4);     /* Sombra oscura y marcada */
+  --h5-blur: saturate(1.2) blur(8px);
+}
+
+/* container */
+.h5{
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: var(--h5-blur);
+  /* Fondo: Usa --h5-bg (con alta opacidad) para el efecto "semi-transparente" */
+  background: linear-gradient(0deg, rgba(28, 28, 28, .88), rgba(28, 28, 28, .88));
+  color: var(--h5-text);
+}
+.h5__row{
+  max-width: 1280px; margin-inline: auto;
+  padding: 12px 20px; display: grid; align-items: center;
+  grid-template-columns: 1fr auto 1fr; gap: 12px;
+}
+
+/* brand */
+.h5__brand{display:flex; align-items:center; gap:10px; color:var(--h5-text); text-decoration:none; font-weight:700}
+.h5__logo{display:block; height:28px; width:auto}
+.h5__brand-text{display:none}
+@media (min-width: 560px){ .h5__brand-text{display:inline-flex} }
+
+/* burger */
+.h5__burger{display:none; background:none; border:0; padding:6px; border-radius:10px; color:var(--h5-text)}
+/* El outline usa el color suave/acento */
+.h5__burger:focus-visible{outline:2px solid var(--h5-soft); outline-offset:2px}
+.h5__burger-bar{display:block; width:22px; height:2px; background:var(--h5-text); margin:4px 0; border-radius:2px}
+
+/* pill nav */
+.h5__nav{justify-self:center}
+.h5__menu{
+  /* Fondo de la pastilla */
+  background: var(--h5-pill);
+  color: var(--h5-text);
+  border-radius:999px; padding:8px 10px;
+  box-shadow: var(--h5-shadow);
+}
+.h5__item{position:relative}
+.h5__item--icon{padding-left:8px; margin-left:4px}
+/* Separador usa --h5-sep */
+.h5__item--icon{border-left:1px solid var(--h5-sep)}
+
+.h5__link{
+  appearance:none; background:none; border:0; color:var(--h5-text);
+  font-weight:700; padding:10px 12px; border-radius:999px; cursor:pointer;
+  text-decoration:none; display:inline-flex; align-items:center; gap:6px;
+}
+/* Hover/Pressed usa --h5-pill-pressed */
+.h5__link:hover, .h5__link:focus-visible{background: var(--h5-pill-pressed)}
+.h5__icon-btn{
+  display:inline-grid; place-items:center; width:32px; height:32px;
+  background:transparent; border:0; color:var(--h5-text); border-radius:8px; cursor:pointer;
+}
+/* Hover/Pressed usa --h5-pill-pressed */
+.h5__icon-btn:hover, .h5__icon-btn:focus-visible{background:var(--h5-pill-pressed)}
+
+.h5__dd{
+  position:absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%) scale(.98);
+  opacity:0; visibility:hidden; transition: .18s ease;
+  /* Fondo del dropdown: Color claro de la paleta (antes: #fff) */
+  background:var(--color-light, #F5F5DC);
+  /* Color de texto del dropdown: Color oscuro de la paleta (antes: #222) */
+  color:var(--color-dark, #0A0A0A);
+  border-radius:14px; padding:10px;
+  min-width: 220px; box-shadow: 0 16px 40px rgba(0,0,0,.25);
+}
+.h5__dd a{
+  display:block; padding:10px 12px; border-radius:8px;
+  /* Texto oscuro (antes: #111) */
+  color:var(--color-dark, #0A0A0A);
+  text-decoration:none; font-weight:600;
+}
+.h5__dd a:hover{
+  /* Hover del dropdown: Usa un tono más claro/suave de la paleta (antes: #f1f3ff) */
+  background:var(--color-soft, #B8860B);
+}
+
+.h5__item--dd[aria-expanded="true"] .h5__dd,
+.h5__item--dd .h5__link[aria-expanded="true"] + .h5__dd{
+  opacity:1; visibility:visible; transform: translateX(-50%) scale(1);
+}
+
+/* CTA */
+.h5__cta{
+  justify-self:end;
+  /* Texto CTA: Acento principal (Marrón Sello) (antes: #3a2fbf) */
+  color:var(--color-accent, #8B4513);
+  /* Fondo CTA: Color claro (antes: #fff) */
+  background:var(--color-light, #F5F5DC);
+  padding:10px 16px;
+  border-radius:12px; font-weight:700; text-decoration:none; box-shadow: var(--h5-shadow);
+}
+/* Sombra en hover: ajustada para usar la nueva sombra más oscura */
+.h5__cta:hover{transform: translateY(-1px); box-shadow: 0 12px 28px rgba(0,0,0,.5)}
+
+/* ====== Mobile ====== */
+@media (max-width: 1024px){
+  .h5__row{grid-template-columns: auto 1fr auto}
+  .h5__burger{display:inline-grid}
+  .h5__nav{
+    position: fixed; inset: 64px 14px auto 14px; top: 72px;
+    transform: translateY(-10px); opacity:0; visibility:hidden;
+  }
+  .h5__menu{
+    flex-direction: column; align-items: stretch; padding:14px;
+    gap:6px; border-radius:18px;
+  }
+  .h5__item--icon{border:0; align-self:flex-end}
+  .h5[data-open="true"] .h5__nav{opacity:1; visibility:visible; transform:none}
+  .h5__dd{position:static; transform:none; opacity:1; visibility:visible;
+    /* Fondo del dropdown móvil: Transparente para usar el fondo del menú */
+    background:transparent;
+    /* Color de texto del dropdown móvil: Hereda el color claro del menú */
+    color:inherit;
+    box-shadow:none; padding:0; min-width:0
+  }
+  .h5__dd a{
+    /* Enlaces dropdown móvil: Texto claro (antes: #fff) */
+    color:var(--h5-text);
+    /* Fondo transparente con alta opacidad, usando el RGB de --h5-text */
+    background:rgba(245, 245, 220, .08);
+  }
+  .h5__dd a:hover{
+    /* Fondo en hover: Mayor opacidad */
+    background:rgba(245, 245, 220, .16);
+  }
+}
