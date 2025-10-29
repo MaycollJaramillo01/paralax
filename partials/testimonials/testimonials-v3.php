@@ -59,18 +59,18 @@ if (!isset($Testimonials)) {
  TESTIMONIALS — TEXT SLIDER (clases únicas tsay-*)
  ======================= */
 .tsay-section{
- --tsay-bg:#f5f6f7;
- --tsay-card:#fff;
- --tsay-ring:rgba(0,0,0,.06);
- --tsay-muted: var(--color-neutral, #4D4D4D);
- --tsay-dark: var(--color-dark, #0A0A0A);
- --tsay-accent:var(--color-accent, #8B4513);
- --tsay-soft: var(--color-soft, #B8860B);
+ --tsay-bg:var(--color-mist-light);
+ --tsay-card:var(--color-light);
+ --tsay-ring:var(--color-dark-alpha-06);
+ --tsay-muted: var(--color-neutral, var(--color-neutral-deep));
+ --tsay-dark: var(--color-dark);
+--tsay-accent:var(--color-warm-base);
+--tsay-soft: var(--color-warm-glow);
 
  background: var(--tsay-bg);
  padding: clamp(2.5rem, 4vw, 4rem);
  border-radius: 24px;
- box-shadow: 0 10px 30px rgba(0,0,0,.06);
+ box-shadow: 0 10px 30px var(--color-dark-alpha-06);
 }
 .tsay-wrap{
  display:grid;
@@ -111,11 +111,11 @@ if (!isset($Testimonials)) {
  color: var(--tsay-dark);
  text-decoration:none;
  border:1px solid var(--tsay-ring);
- box-shadow: 0 4px 14px rgba(0,0,0,.06);
+ box-shadow: 0 4px 14px var(--color-dark-alpha-06);
  font-weight: 700;
  transition: transform .2s ease, box-shadow .2s ease;
 }
-.tsay-cta:hover{ transform: translateY(-1px); box-shadow:0 8px 20px rgba(0,0,0,.08); }
+.tsay-cta:hover{ transform: translateY(-1px); box-shadow:0 8px 20px var(--color-dark-alpha-08); }
 .tsay-cta svg{ transform: translateX(0); transition: transform .2s ease; }
 .tsay-cta:hover svg{ transform: translateX(3px); }
 
@@ -125,7 +125,7 @@ if (!isset($Testimonials)) {
  background: var(--tsay-card);
  border-radius: 18px;
  padding: clamp(1.2rem, 2.2vw, 2rem);
- box-shadow: 0 8px 28px rgba(0,0,0,.08);
+ box-shadow: 0 8px 28px var(--color-dark-alpha-08);
  min-height: 260px;
  display:flex;
  align-items:center;
@@ -172,13 +172,13 @@ if (!isset($Testimonials)) {
 .tsay-nav{
  width:40px; height:40px; border-radius:12px;
  border:1px solid var(--tsay-ring);
- background:#fff; color:var(--tsay-dark);
+ background:var(--color-light); color:var(--tsay-dark);
  display:grid; place-items:center;
- box-shadow:0 6px 18px rgba(0,0,0,.06);
+ box-shadow:0 6px 18px var(--color-dark-alpha-06);
  cursor:pointer;
  transition: transform .15s ease, background .15s ease;
 }
-.tsay-nav:hover{ transform: translateY(-1px); background:#fafafa; }
+.tsay-nav:hover{ transform: translateY(-1px); background:var(--color-soft-white); }
 .tsay-nav:focus-visible{ outline:2px solid var(--tsay-accent); outline-offset:2px; }
 
 @media (max-width: 560px){

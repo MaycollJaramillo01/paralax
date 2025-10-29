@@ -57,7 +57,7 @@ $SubProjects   = $SubProjects   ?? "Each project combines strategy, design, and 
 /* ============ FEATURED PROJECTS FULL WIDTH ============ */
 .projFull{
   width:100%;
-  background:linear-gradient(to right, var(--color-light), #f9f8ee);
+  background:linear-gradient(to right, var(--color-light), var(--color-eggshell));
   color:var(--color-dark);
   padding:clamp(4rem,6vw,6rem) 0;
   overflow:hidden;
@@ -75,7 +75,7 @@ $SubProjects   = $SubProjects   ?? "Each project combines strategy, design, and 
   color:var(--color-primary);
 }
 .projFull__head p{
-  color:#333;
+  color:var(--color-secondary);
   max-width:70ch;
   margin:0 auto;
   font-size:1.05rem;
@@ -107,12 +107,12 @@ $SubProjects   = $SubProjects   ?? "Each project combines strategy, design, and 
   cursor:pointer;
   transform:translateY(40px);
   opacity:0;
-  box-shadow:0 12px 35px rgba(0,0,0,.15);
+  box-shadow:0 12px 35px var(--color-dark-alpha-15);
   transition:transform .5s ease, box-shadow .5s ease;
 }
 .projFull__card:hover{
   transform:scale(1.03) rotateX(4deg);
-  box-shadow:0 20px 60px rgba(0,0,0,.25);
+  box-shadow:0 20px 60px var(--color-dark-alpha-25);
 }
 
 /* IMAGE */
@@ -127,12 +127,12 @@ $SubProjects   = $SubProjects   ?? "Each project combines strategy, design, and 
 /* OVERLAY */
 .projFull__overlay{
   position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.8) 100%);
+  background:linear-gradient(180deg,var(--color-dark-alpha-05) 0%,var(--color-dark-alpha-80) 100%);
   z-index:1;
   transition:background .4s ease;
 }
 .projFull__card:hover .projFull__overlay{
-  background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.9) 100%);
+  background:linear-gradient(180deg,var(--color-dark-alpha-15) 0%,var(--color-dark-alpha-90) 100%);
 }
 
 /* CONTENT */
@@ -141,7 +141,7 @@ $SubProjects   = $SubProjects   ?? "Each project combines strategy, design, and 
   bottom:0;
   z-index:2;
   padding:1.8rem;
-  color:#fff;
+  color:var(--color-light);
 }
 .projFull__content h3{
   font-family:var(--font-heading);
@@ -155,11 +155,11 @@ $SubProjects   = $SubProjects   ?? "Each project combines strategy, design, and 
 }
 .projFull__cta{
   display:inline-flex;align-items:center;gap:.5rem;
-  background:rgba(255,255,255,.2);
+  background:var(--color-light-alpha-20);
   padding:.6rem 1rem;
   border-radius:10px;
   text-decoration:none;
-  color:#fff;font-weight:700;
+  color:var(--color-light);font-weight:700;
   backdrop-filter:blur(6px);
   transition:background .3s ease;
 }

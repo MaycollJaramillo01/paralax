@@ -54,7 +54,7 @@ if (!isset($Projects)) {
    ============================================ */
 .projGlass{
   width:100%;
-  background:linear-gradient(135deg,var(--color-light) 0%,rgba(255,255,255,0.15) 100%);
+  background:linear-gradient(135deg,var(--color-light) 0%,var(--color-light-alpha-15) 100%);
   color:var(--color-dark);
   padding:clamp(3rem,5vw,5rem) 0;
   overflow:hidden;
@@ -77,7 +77,7 @@ if (!isset($Projects)) {
 }
 .projGlass__head p{
   font-size:1.05rem;
-  color:rgba(0,0,0,.7);
+  color:var(--color-dark-alpha-70);
 }
 
 /* ---------- GRID ---------- */
@@ -94,17 +94,17 @@ if (!isset($Projects)) {
   position:relative;
   border-radius:22px;
   overflow:hidden;
-  background:rgba(255,255,255,0.1);
+  background:var(--color-light-alpha-10);
   backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,0.25);
-  box-shadow:0 8px 32px rgba(0,0,0,0.1);
+  border:1px solid var(--color-light-alpha-25);
+  box-shadow:0 8px 32px var(--color-dark-alpha-10);
   transform:translateY(30px);
   opacity:0;
   transition:transform .6s ease, opacity .6s ease, box-shadow .5s ease, scale .5s ease;
 }
 .projGlass__card:hover{
   transform:translateY(-6px) scale(1.03);
-  box-shadow:0 16px 45px rgba(0,0,0,0.25);
+  box-shadow:0 16px 45px var(--color-dark-alpha-25);
 }
 
 /* ---------- IMAGE ---------- */
@@ -139,7 +139,7 @@ if (!isset($Projects)) {
 }
 .projGlass__content p{
   font-size:.95rem;
-  color:rgba(0,0,0,.8);
+  color:var(--color-dark-alpha-80);
   margin:0 0 1.2rem;
   line-height:1.5;
 }
@@ -147,21 +147,21 @@ if (!isset($Projects)) {
   display:inline-flex;
   align-items:center;
   gap:.5rem;
-  background:rgba(255,255,255,0.25);
+  background:var(--color-light-alpha-25);
   backdrop-filter:blur(8px);
   border-radius:12px;
   padding:.6rem 1.1rem;
   color:var(--color-dark);
   font-weight:700;
   text-decoration:none;
-  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+  box-shadow:0 4px 10px var(--color-dark-alpha-15);
   transition:all .4s ease;
 }
 .projGlass__cta:hover{
   background:var(--color-accent);
   color:var(--color-light);
   transform:translateY(-2px);
-  box-shadow:0 6px 16px rgba(0,0,0,0.25);
+  box-shadow:0 6px 16px var(--color-dark-alpha-25);
 }
 
 /* ---------- ANIMATION ---------- */

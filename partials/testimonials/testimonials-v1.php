@@ -90,8 +90,8 @@ if (!isset($Testimonials) || !is_array($Testimonials)) {
 }
 
 .testi-card{
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.15);
+  background:var(--color-light-alpha-08);
+  border:1px solid var(--color-light-alpha-15);
   backdrop-filter:blur(16px);
   border-radius:var(--radius-lg);
   padding:2rem 1.5rem 2.5rem;
@@ -114,9 +114,9 @@ if (!isset($Testimonials) || !is_array($Testimonials)) {
   border-radius:50%;
   border:2px solid var(--color-soft);
   color:var(--color-soft);
-  background:rgba(255,255,255,0.05);
+  background:var(--color-light-alpha-05);
   font-size:2.4rem;
-  box-shadow:0 0 10px rgba(0,0,0,0.3);
+  box-shadow:0 0 10px var(--color-dark-alpha-30);
 }
 .testi-avatar i{
   animation: float 4s ease-in-out infinite;
@@ -136,7 +136,7 @@ if (!isset($Testimonials) || !is_array($Testimonials)) {
 }
 .testi-card .role{
   font-size:.9rem;
-  color:rgba(255,255,255,0.8);
+  color:var(--color-light-alpha-80);
 }
 
 /* Scroll-reveal animation */

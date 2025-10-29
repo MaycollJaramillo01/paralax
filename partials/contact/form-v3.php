@@ -27,7 +27,7 @@
 }
 .contact-form-wrap {
   background: var(--color-dark);
-  color: #fff; display: flex;
+  color: var(--color-light); display: flex;
   flex-direction: column; justify-content: center;
   padding: clamp(3rem,6vw,6rem);
   animation: fadeSlide 1.2s ease;
@@ -40,7 +40,7 @@
 }
 .contact-form-wrap button {
   background: var(--color-accent);
-  color: #fff; border: none; border-radius: .5rem;
+  color: var(--color-light); border: none; border-radius: .5rem;
   padding: 1rem 2rem; cursor: pointer;
   transition: transform .3s;
 }

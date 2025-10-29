@@ -70,9 +70,9 @@ $SubServices   = $SubServices ?? "Our team of experts is dedicated to helping yo
   grid-template-columns: 0.9fr 1.1fr;
   align-items: center;
   gap: 2rem;
-  background: #fff;
+  background: var(--color-light);
   border-radius: 20px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 28px var(--color-dark-alpha-12);
   padding: 2rem 2.5rem;
   margin-bottom: 2.5rem;
   transition: var(--transition-medium);
@@ -114,18 +114,18 @@ $SubServices   = $SubServices ?? "Our team of experts is dedicated to helping yo
   width: 260px;
   height: 260px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(184,134,11,0.25), rgba(0,0,0,0.03));
+  background: radial-gradient(circle at 30% 30%, var(--color-warm-glow-alpha-25), var(--color-dark-alpha-03));
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 60px rgba(184,134,11,0.35);
+  box-shadow: 0 0 60px var(--color-warm-glow-alpha-35);
 }
 .sv3__imgWrap::before {
   content: "";
   position: absolute;
   inset: -10px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(139,69,19,0.25), transparent 70%);
+  background: radial-gradient(circle, var(--color-warm-base-alpha-25), transparent 70%);
   z-index: 0;
 }
 .sv3__imgWrap img {

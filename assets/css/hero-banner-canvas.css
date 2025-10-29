@@ -21,12 +21,12 @@
   position:absolute; inset:0; z-index:0; pointer-events:none;
   /* El scrim ahora usa tonos oscuros primarios para el gradiente */
   background:
-    radial-gradient(70% 60% at 30% 30%, 
+    radial-gradient(70% 60% at 30% 30%,
       /* Tonos oscuros transparentes para la viñeta (antes: rgba(10,30,35,.55)) */
-      rgba(var(--color-primary-rgb, 28, 28, 28), .55), transparent 60%),
-    linear-gradient(140deg, 
+      rgba(var(--color-primary-rgb), 0.55), transparent 60%),
+    linear-gradient(140deg,
       /* Tonos oscuros profundos para el gradiente (antes: rgba(5,14,18,.65) y rgba(5,14,18,.25)) */
-      rgba(var(--color-dark-rgb, 10, 10, 10), .65), rgba(var(--color-dark-rgb, 10, 10, 10), .25));
+      rgba(var(--color-dark-rgb), 0.65), rgba(var(--color-dark-rgb), 0.25));
 }
 
 .ph4-inner{
@@ -41,7 +41,7 @@
 .ph4-eyebrow{
   margin:0; text-transform:uppercase; letter-spacing:.18em;
   /* Color de acento suave (antes: #8adbb6) */
-  color:var(--color-soft); 
+  color:var(--color-seafoam);
   font-size:.9rem;
 }
 
@@ -53,13 +53,13 @@
   font-family:var(--font-heading, ui-sans-serif, system-ui);
   font-size:clamp(2.4rem, 6vw, 4.6rem);
   line-height:1.08; word-break:break-word;
-  text-shadow:0 10px 30px rgba(0,0,0,.35);
+  text-shadow: var(--shadow-text-strong);
 }
 
 .ph4-sub{
   margin:0; font-size:1.125rem; line-height:1.7;
   /* Subtítulo blanco transparente (antes: rgba(255,255,255,.92)) */
-  color:rgba(245, 245, 220, .92); /* Usando el RGB de --color-light */
+  color:var(--color-ivory-alpha-92);
 }
 
 .ph4-bullets{
@@ -74,9 +74,9 @@
   content:""; position:absolute; left:0; top:.6em;
   width:.55rem; height:.55rem; border-radius:999px;
   /* Acento principal para la viñeta (antes: #7ff0b8) */
-  background:var(--color-accent); 
+  background:var(--color-lagoon);
   /* Sombra de viñeta usando el RGB del acento (antes: rgba(127,240,184,.18)) */
-  box-shadow:0 0 0 6px rgba(139, 69, 19, .18); 
+  box-shadow:0 0 0 6px var(--color-lagoon-alpha-18);
 }
 
 .ph4-cta{
@@ -89,19 +89,19 @@
 }
 .ph4-btn--primary{
   /* Botón Principal: Acento para fondo y oscuro para texto (antes: #7ff0b8 y #0d2a25) */
-  background:var(--color-accent); 
-  color:var(--color-dark); 
-  box-shadow:0 10px 26px rgba(0,0,0,.28);
+  background:var(--color-lagoon);
+  color:var(--color-forest-deep);
+  box-shadow:0 10px 26px var(--color-dark-alpha-28);
 }
-.ph4-btn--primary:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(0,0,0,.35); }
+.ph4-btn--primary:hover{ transform:translateY(-2px); box-shadow:0 14px 30px var(--color-dark-alpha-35); }
 
 .ph4-btn--ghost{
   /* Botón Ghost: Claro para texto y fondo transparente (antes: #eaf5f2) */
-  color:var(--color-light); 
-  border:1px solid rgba(255,255,255,.35); 
-  background:rgba(255,255,255,.08);
+  color:var(--color-ivory);
+  border:1px solid var(--color-light-alpha-35);
+  background:var(--color-light-alpha-08);
 }
-.ph4-btn--ghost:hover{ background:rgba(255,255,255,.16); }
+.ph4-btn--ghost:hover{ background:var(--color-light-alpha-16); }
 
 /* Entrada suave si usas ScrollAnim: .in-view */
 [data-animate]{opacity:0; transform:translateY(16px); will-change:transform,opacity;}

@@ -35,7 +35,7 @@
 .faq-v2-card {
   background: var(--color-dark);
   border-radius: var(--radius-lg);
-  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.1);
+  box-shadow: inset 0 0 0 2px var(--color-light-alpha-10);
   padding: 1.5rem;
   position: relative;
   transition: transform .5s var(--transition-smooth), box-shadow .5s var(--transition-smooth);

@@ -37,8 +37,8 @@ if (!isset($Projects)) {
 <style>
 /* ============= SEO FOCUSED GRID ============= */
 .pSEO{
-  background:#fff;
-  color:#111;
+  background:var(--color-light);
+  color:var(--color-dark);
   padding:clamp(3rem,5vw,5rem) 2rem;
 }
 .pSEO__head{text-align:center;max-width:70ch;margin:0 auto 2.5rem;}
@@ -47,7 +47,7 @@ if (!isset($Projects)) {
   font-size:clamp(2rem,3vw,2.6rem);
   color:var(--color-primary);
 }
-.pSEO__head p{color:#333;}
+.pSEO__head p{color:var(--color-secondary);}
 
 .pSEO__grid{
   display:grid;
@@ -57,15 +57,15 @@ if (!isset($Projects)) {
   margin:0 auto;
 }
 .pSEO__card{
-  background:#fff;
+  background:var(--color-light);
   border-radius:16px;
   overflow:hidden;
-  box-shadow:0 8px 26px rgba(0,0,0,.08);
+  box-shadow:0 8px 26px var(--color-dark-alpha-08);
   transition:transform .4s ease, box-shadow .4s ease;
 }
 .pSEO__card:hover{
   transform:translateY(-4px);
-  box-shadow:0 16px 40px rgba(0,0,0,.15);
+  box-shadow:0 16px 40px var(--color-dark-alpha-15);
 }
 .pSEO__img img{
   width:100%;height:auto;display:block;

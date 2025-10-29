@@ -117,8 +117,8 @@ $chips = array_filter([
 .about-v3 {
     position: relative;
     padding: 6rem 0;
-    background: var(--color-background, #f9f9f9);
-    color: var(--color-dark, #1a1a1a);
+    background: var(--color-background, var(--color-soft-white));
+    color: var(--color-dark, var(--color-primary));
 }
 
 .grid-layout {
@@ -142,18 +142,18 @@ $chips = array_filter([
     font-weight: 800;
     margin-bottom: 1rem;
     line-height: 1.1;
-    color: var(--color-primary, #007bff);
+    color: var(--color-brand-blue);
 }
 
 .content-block .subtitle {
     font-size: clamp(1.1rem, 2vw, 1.4rem);
-    color: var(--color-secondary, #444);
+    color: var(--color-secondary, var(--color-neutral-deep));
     margin-bottom: 1.8rem;
     font-weight: 500;
 }
 
 .content-block .detail {
-    color: rgba(0, 0, 0, 0.75);
+    color: var(--color-dark-alpha-75);
     font-size: 1.05rem;
     line-height: 1.7;
     margin-bottom: 2.5rem;
@@ -171,24 +171,24 @@ $chips = array_filter([
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background: var(--color-light, #ffffff);
-    border: 1px solid var(--color-border, #e0e0e0);
+    background: var(--color-light, var(--color-soft-white));
+    border: 1px solid var(--color-border, var(--color-neutral));
     border-radius: 50px;
     padding: 0.8rem 1.4rem;
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--color-dark, #1a1a1a);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    color: var(--color-dark, var(--color-primary));
+    box-shadow: 0 4px 15px var(--color-dark-alpha-04);
     transition: all 0.3s ease;
 }
 .chip:hover {
-    border-color: var(--color-accent, #0fb36d);
-    color: var(--color-accent, #0fb36d);
+    border-color: var(--color-success);
+    color: var(--color-success);
     transform: translateY(-2px);
 }
 .chip__icon {
     font-size: 1.1rem;
-    color: var(--color-accent, #0fb36d);
+    color: var(--color-success);
 }
 
 /* --- Botones --- */
@@ -208,12 +208,12 @@ $chips = array_filter([
     white-space: nowrap;
 }
 .btn-primary {
-    background: var(--color-primary, #007bff);
-    color: #fff;
-    box-shadow: 0 10px 30px rgba(0,123,255,0.3);
+    background: var(--color-brand-blue);
+    color: var(--color-light);
+    box-shadow: 0 10px 30px var(--color-brand-blue-alpha-30);
 }
 .btn-primary:hover {
-    background: #0056b3;
+    background: var(--color-brand-blue-dark);
     transform: translateY(-3px);
 }
 
@@ -226,33 +226,33 @@ $chips = array_filter([
 }
 
 .feature-card {
-    background: #ffffff;
+    background: var(--color-soft-white);
     padding: 2.5rem;
     border-radius: var(--radius-lg, 16px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px var(--color-dark-alpha-08);
 }
 
 .card-title {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.8rem;
-    color: var(--color-primary, #007bff);
+    color: var(--color-brand-blue);
 }
-.mission-card .card-title { color: var(--color-accent-dark, #28a745); }
-.vision-card .card-title { color: var(--color-accent-light, #fd7e14); }
+.mission-card .card-title { color: var(--color-success); }
+.vision-card .card-title { color: var(--color-ember); }
 
 .card-detail {
     font-size: 1rem;
-    color: rgba(0, 0, 0, 0.7);
+    color: var(--color-dark-alpha-70);
     line-height: 1.6;
 }
 
 /* --- Contador --- */
 .counter-card {
     text-align: center;
-    background: linear-gradient(135deg, var(--color-primary, #007bff), #0056b3);
+    background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-blue-dark));
     color: white;
-    box-shadow: 0 15px 40px rgba(0,123,255,0.5);
+    box-shadow: 0 15px 40px var(--color-brand-blue-alpha-50);
 }
 .counter-val {
     font-size: 5rem;
@@ -281,7 +281,7 @@ $chips = array_filter([
 .parallax-line {
     height: 4px;
     width: 100%;
-    background: var(--color-accent, #0fb36d);
+    background: var(--color-success);
     margin: 0 auto;
     /* Estilos iniciales para la animación */
     transform-origin: center;

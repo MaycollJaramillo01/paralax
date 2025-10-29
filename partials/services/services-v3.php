@@ -95,8 +95,8 @@ if (!empty($SN)) {
   margin:0 auto;
   border:10px solid var(--color-primary);
   border-radius:22px;
-  background:#fffef6; /* tono claro muy suave sobre var(--color-light) */
-  box-shadow:0 10px 40px rgba(0,0,0,.12);
+  background:var(--color-ivory-soft); /* tono claro muy suave sobre var(--color-light) */
+  box-shadow:0 10px 40px var(--color-dark-alpha-12);
   overflow:hidden;
 }
 
@@ -114,8 +114,8 @@ if (!empty($SN)) {
 .svcR__copy{ padding:1rem 1.2rem 0 1.2rem; }
 .svcR__chip{
   display:inline-flex; gap:.5rem; align-items:center;
-  background:rgba(0,0,0,.05);
-  border:1px solid rgba(0,0,0,.08);
+  background:var(--color-dark-alpha-05);
+  border:1px solid var(--color-dark-alpha-08);
   padding:.45rem .8rem; border-radius:999px;
   font-weight:700; color:var(--color-neutral);
 }
@@ -130,7 +130,7 @@ if (!empty($SN)) {
 }
 .svcR__sub{
   max-width:62ch;
-  color:#2e2e2e;
+  color:var(--color-graphite);
   margin:0 0 .9rem;
 }
 
@@ -140,7 +140,7 @@ if (!empty($SN)) {
   background:var(--color-primary); color:var(--color-light);
   padding:.7rem 1rem; border-radius:12px; text-decoration:none;
   font-weight:800; transition:var(--transition-fast);
-  box-shadow:0 8px 26px rgba(0,0,0,.18);
+  box-shadow:0 8px 26px var(--color-dark-alpha-18);
 }
 .svcR__btn:hover{
   transform:translateY(-1px);
@@ -156,7 +156,7 @@ if (!empty($SN)) {
 
 /* ---------- HERO con tamaño ESPECIFICADO ---------- */
 .svcR__media{
-  border-radius:16px; overflow:hidden; background:#ddd;
+  border-radius:16px; overflow:hidden; background:var(--color-soft-gray);
   height:420px; min-height:420px; /* altura fija desktop: estabilidad CLS */
 }
 .svcR__media img{
@@ -197,11 +197,11 @@ if (!empty($SN)) {
   text-transform:uppercase; font-family:var(--font-heading);
   color:var(--color-primary);
 }
-.svcR__cardDesc{ color:#0a0a0a; margin:0 0 2.1rem; }
+.svcR__cardDesc{ color:var(--color-dark); margin:0 0 2.1rem; }
 .svcR__view{
   position:absolute; right:12px; bottom:12px;
   display:inline-flex; gap:.5rem; align-items:center;
-  background:#fff; color:var(--color-primary);
+  background:var(--color-light); color:var(--color-primary);
   border:2px solid var(--color-primary);
   padding:.45rem .7rem; border-radius:12px;
   text-decoration:none; font-weight:800;
@@ -214,12 +214,12 @@ if (!empty($SN)) {
 .svcR__card:hover{ transform:translateY(-2px); }
 
 /* Colores por tarjeta (guiño a health UI respetando root) */
-.svcR__card.c1{ background:#bfe8e1; }
-.svcR__card.c2{ background:#f0b186; }
-.svcR__card.c3{ background:#a9dde3; }
-.svcR__card.c4{ background:#e9d3a5; }
-.svcR__card.c5{ background:#d7c6ff; }
-.svcR__card.c6{ background:#ffd1c6; }
+.svcR__card.c1{ background:var(--color-pastel-mint); }
+.svcR__card.c2{ background:var(--color-pastel-apricot); }
+.svcR__card.c3{ background:var(--color-pastel-sky); }
+.svcR__card.c4{ background:var(--color-pastel-sand); }
+.svcR__card.c5{ background:var(--color-pastel-lavender); }
+.svcR__card.c6{ background:var(--color-pastel-coral); }
 
 /* Reveal base (rápido y suave) */
 #services-redesign .reveal{ opacity:0; transform:translateY(18px); }

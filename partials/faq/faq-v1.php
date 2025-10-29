@@ -34,7 +34,7 @@ if (!isset($FAQs)) include __DIR__ . '/text.php';
   margin-bottom: 2rem;
 }
 .faq-v1-item {
-  background: rgba(255,255,255,0.8);
+  background: var(--color-light-alpha-80);
   border: 1px solid var(--color-neutral);
   border-radius: var(--radius-md);
   margin-bottom: 1rem;
