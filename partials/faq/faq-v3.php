@@ -27,8 +27,8 @@
   margin-bottom: 2.5rem;
 }
 .faq-v3-item {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: var(--color-light-alpha-08);
+  border: 1px solid var(--color-light-alpha-15);
   border-radius: var(--radius-md);
   margin: 1rem 0;
   padding: 1.5rem 2rem;

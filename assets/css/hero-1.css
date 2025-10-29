@@ -7,12 +7,12 @@
   gap: clamp(3rem, 5vw, 6rem);
   padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 6vw, 6rem);
   /* Fondo: Gradiente entre Gris Oscuro y Negro Carbón Profundo (antes: --color-secondary y #1b5367) */
-  background: linear-gradient(140deg, var(--color-secondary, #333333) 20%, var(--color-primary, #1C1C1C) 100%);
+  background: linear-gradient(140deg, var(--color-secondary) 20%, var(--color-primary) 100%);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-hard);
   overflow: hidden;
   /* Color de texto claro (antes: --color-light) */
-  color: var(--color-light, #F5F5DC);
+  color: var(--color-ivory);
 }
 
 .hero-conversational::before {
@@ -20,7 +20,7 @@
   position: absolute;
   inset: 0;
   /* Efecto orb: Usa el RGB de --color-soft (Oro Viejo Mate) con transparencia (antes: rgba(128, 237, 153, 0.18)) */
-  background: radial-gradient(circle at 25% 30%, rgba(184, 134, 11, 0.18), transparent 70%);
+  background: radial-gradient(circle at 25% 30%, var(--color-warm-glow-alpha-18), transparent 70%);
   z-index: 0;
 }
 
@@ -61,7 +61,7 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   /* Color de acento suave (Oro Viejo Mate) */
-  color: var(--color-soft, #B8860B);
+  color: var(--color-warm-glow);
 }
 
 .hero-conversational__title {
@@ -70,7 +70,7 @@
   font-size: clamp(2.4rem, 5vw, 4.5rem);
   line-height: 1.15;
   /* Color de título claro (antes: #fff) */
-  color: var(--color-light, #F5F5DC);
+  color: var(--color-ivory);
   word-wrap: break-word;
   overflow-wrap: anywhere;
 }
@@ -78,7 +78,7 @@
 .hero-conversational__typing {
   display: inline-block;
   /* Cursor: Borde con acento principal (Marrón Sello) */
-  border-right: 3px solid var(--color-accent, #8B4513);
+  border-right: 3px solid var(--color-warm-base);
   padding-right: 0.2rem;
   white-space: normal;
   overflow: hidden;
@@ -89,7 +89,7 @@
   font-size: 1.125rem;
   line-height: 1.7;
   /* Texto claro con transparencia, usando el RGB de --color-light (antes: rgba(255, 255, 255, 0.92)) */
-  color: rgba(245, 245, 220, 0.92);
+  color: var(--color-ivory-alpha-92);
   margin-bottom: 0.8rem;
 }
 
@@ -107,7 +107,7 @@
   padding-left: 1.5rem;
   line-height: 1.5;
   /* Texto claro con transparencia, usando el RGB de --color-light (antes: rgba(255, 255, 255, 0.95)) */
-  color: rgba(245, 245, 220, 0.95);
+  color: var(--color-ivory-alpha-95);
 }
 
 .hero-conversational__bullets li::before {
@@ -119,9 +119,9 @@
   height: 0.55rem;
   border-radius: 50%;
   /* Viñeta: Acento principal (Marrón Sello) */
-  background: var(--color-accent, #8B4513);
+  background: var(--color-warm-base);
   /* Sombra: Usa el RGB de --color-soft (Oro Viejo Mate) con transparencia (antes: rgba(128, 237, 153, 0.18)) */
-  box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.18);
+  box-shadow: var(--shadow-glow-warm);
 }
 
 .hero-conversational__cta {
@@ -141,8 +141,8 @@
 
 .hero-conversational__btn--primary {
   /* Fondo: Acento principal (Marrón Sello). Texto: Gris Oscuro */
-  background: var(--color-accent, #8B4513);
-  color: var(--color-secondary, #333333);
+  background: var(--color-warm-base);
+  color: var(--color-secondary);
   box-shadow: var(--shadow-soft);
 }
 
@@ -154,14 +154,14 @@
 .hero-conversational__btn--ghost {
   background: transparent;
   /* Borde: RGB de --color-light con transparencia (antes: rgba(255, 255, 255, 0.5)) */
-  border: 1.5px solid rgba(245, 245, 220, 0.5);
+  border: 1.5px solid var(--color-ivory-alpha-50);
   /* Color de texto claro (antes: #fff) */
-  color: var(--color-light, #F5F5DC);
+  color: var(--color-ivory);
 }
 
 .hero-conversational__btn--ghost:hover {
   /* Fondo en hover: RGB de --color-light con transparencia (antes: rgba(255, 255, 255, 0.1)) */
-  background: rgba(245, 245, 220, 0.1);
+  background: var(--color-ivory-alpha-10);
 }
 
 /* RESPONSIVE FIXES */

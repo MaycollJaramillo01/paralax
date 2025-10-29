@@ -65,9 +65,9 @@
  z-index: calc(var(--z-bg) + 1);
  /* MODIFICACIÓN CLAVE: Ajuste para más visibilidad del 'bloom' y el contenido */
  background: linear-gradient(90deg, 
-        rgba(10,12,15,0.75) 0%, /* Más oscuro a la izquierda */
-        rgba(10,12,15,0.40) 50%, /* Menos oscuro en el centro */
-        rgba(255,255,255,0.05) 100%); /* Casi transparente/ligeramente blanco a la derecha */
+        var(--color-night-steel-alpha-75) 0%, /* Más oscuro a la izquierda */
+        var(--color-night-steel-alpha-40) 50%, /* Menos oscuro en el centro */
+        var(--color-light-alpha-05) 100%); /* Casi transparente/ligeramente blanco a la derecha */
  mix-blend-mode: normal;
  pointer-events: none;
  opacity: 1;
@@ -105,14 +105,14 @@
  line-height: 1.02;
  margin: 0;
  color: var(--color-light);
- text-shadow: 0 6px 20px rgba(0,0,0,0.45);
+ text-shadow: 0 6px 20px var(--color-dark-alpha-45);
  font-weight: 700;
 }
 
 .hero-lead {
  max-width: 820px;
  margin: 0.5rem 0 1.25rem;
- color: rgba(235,235,235,0.92);
+ color: var(--color-silver-soft-alpha-92);
  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
 }
 
@@ -139,7 +139,7 @@
 .btn-primary:hover { 
  /* Usar sombra con acento y elevación */
  transform: translateY(-3px); 
- box-shadow: var(--shadow-soft), 0 10px 30px rgba(0,0,0,0.2); 
+ box-shadow: var(--shadow-soft), 0 10px 30px var(--color-dark-alpha-20); 
 }
 
 /* CTA container spacing */
@@ -164,9 +164,9 @@
  /* MODIFICACIÓN: El pulso usa --color-soft para el 'bloom' */
  background: radial-gradient(circle at 30% 30%, 
         var(--color-soft) 0%, 
-        rgba(51, 224, 255, 0.85) 6%, 
-        rgba(51, 224, 255, 0.18) 20%, 
-        rgba(0,188,212,0.06) 45%, 
+        var(--color-soft-alpha-85) 6%, 
+        var(--color-soft-alpha-18) 20%, 
+        var(--color-accent-alpha-06) 45%, 
         transparent 65%);
  filter: blur(32px) saturate(1.1);
  opacity: 0.95;
@@ -184,7 +184,7 @@
  height: 55%;
  border-radius: 50%;
  /* MODIFICACIÓN: Usar --color-accent en el pulso interno */
- background: radial-gradient(circle, rgba(0,188,212,0.22), transparent 60%);
+ background: radial-gradient(circle, var(--color-accent-alpha-22), transparent 60%);
  filter: blur(18px);
  opacity: .9;
  animation: heroPulseSlow 5.6s ease-in-out infinite;

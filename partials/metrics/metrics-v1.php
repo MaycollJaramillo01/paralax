@@ -49,10 +49,10 @@ $Achievements = [
    SECTION: Achievements (Layout: Image Left / Stats Right)
    ========================================================= */
 .achievements {
-  background: #fff;
+  background: var(--color-light);
   padding: clamp(3rem, 5vw, 5rem) 1rem;
   font-family: 'Poppins', sans-serif;
-  color: #1e293b;
+  color: var(--color-slate-800);
 }
 
 .achievements-container {
@@ -69,7 +69,7 @@ $Achievements = [
   flex: 1 1 420px;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 35px var(--color-dark-alpha-10);
 }
 .achievements-image img {
   width: 100%;
@@ -86,13 +86,13 @@ $Achievements = [
 .achievements-content h2 {
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 800;
-  color: #0f172a;
+  color: var(--color-midnight);
   margin-bottom: 0.5rem;
 }
 
 .achievements-content .subtitle {
   font-size: 1rem;
-  color: #64748b;
+  color: var(--color-slate-500);
   margin-bottom: 2rem;
 }
 
@@ -118,8 +118,8 @@ $Achievements = [
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: #0d6efd;
-  color: #fff;
+  background: var(--color-brand-blue-bright);
+  color: var(--color-light);
   display: grid;
   place-items: center;
   font-size: 1.3rem;
@@ -128,14 +128,14 @@ $Achievements = [
 .achievement-text h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--color-midnight);
   margin: 0;
   line-height: 1;
 }
 
 .achievement-text p {
   font-size: 0.95rem;
-  color: #475569;
+  color: var(--color-slate-600);
   margin: 0.3rem 0 0;
 }
 

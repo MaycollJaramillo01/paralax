@@ -39,7 +39,7 @@
 .partners-v3 h2 {
   font-family:var(--font-heading);
   font-size:clamp(1.8rem,3vw,2.5rem);
-  color:#fff;
+  color:var(--color-light);
 }
 .partners-v3 p { opacity:.9; margin-bottom:2rem; }
 .partners-v3-grid {
@@ -49,9 +49,9 @@
   gap:2rem;
 }
 .partners-v3-card {
-  background:rgba(255,255,255,0.1);
+  background:var(--color-light-alpha-10);
   backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,0.15);
+  border:1px solid var(--color-light-alpha-15);
   border-radius:var(--radius-md);
   padding:1rem 1.5rem;
   width:150px;

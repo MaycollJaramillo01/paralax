@@ -50,7 +50,7 @@ $baseURL = $BaseURL ?? '';
 
 .about-v1 {
   position: relative;
-  background: linear-gradient(180deg, #ffffff 0%, #f6f7f8 100%);
+  background: linear-gradient(180deg, var(--color-light) 0%, var(--color-frost) 100%);
   padding: 7rem 0;
   overflow: hidden;
 }
@@ -67,7 +67,7 @@ $baseURL = $BaseURL ?? '';
   position: relative;
   border-radius: var(--radius-lg, 16px);
   overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 40px var(--color-dark-alpha-15);
   transition: transform 0.6s ease;
 }
 .about-v1__image img {
@@ -84,7 +84,7 @@ $baseURL = $BaseURL ?? '';
 
 /* === Contenido === */
 .about-v1__content {
-  color: var(--color-dark, #1b1b1b);
+  color: var(--color-dark);
   padding-right: 1rem;
 }
 
@@ -93,20 +93,20 @@ $baseURL = $BaseURL ?? '';
   font-size: clamp(2.2rem, 4vw, 3rem);
   font-weight: 700;
   margin-bottom: 1.2rem;
-  color: var(--color-dark, #1b1b1b);
+  color: var(--color-dark);
 }
 
 .about-v1__content .short {
   font-size: 1.15rem;
   font-weight: 500;
-  color: var(--color-secondary, #444);
+  color: var(--color-secondary, var(--color-neutral-deep));
   margin-bottom: 1.2rem;
 }
 
 .about-v1__content .detail {
   font-size: 1.05rem;
   line-height: 1.8;
-  color: rgba(0, 0, 0, 0.75);
+  color: var(--color-dark-alpha-75);
   margin-bottom: 2rem;
 }
 
@@ -121,12 +121,12 @@ $baseURL = $BaseURL ?? '';
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: var(--color-dark, #1b1b1b);
+  color: var(--color-dark);
   padding: 0.3rem 0;
   transition: transform 0.3s ease;
 }
 .reasons li i {
-  color: var(--color-accent, #0fb36d);
+  color: var(--color-success);
 }
 .reasons li:hover {
   transform: translateX(4px);
@@ -149,12 +149,12 @@ $baseURL = $BaseURL ?? '';
 }
 
 .btn-primary {
-  background: var(--color-accent, #0fb36d);
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(15,179,109,0.3);
+  background: var(--color-success);
+  color: var(--color-light);
+  box-shadow: 0 8px 20px var(--color-success-alpha-30);
 }
 .btn-primary:hover {
-  background: #0a8a55;
+  background: var(--color-success-dark);
   transform: translateY(-3px);
 }
 

@@ -14,7 +14,7 @@ $cta_primary_text = $HomeIntro['primaryCTA'];
     */
     .cta-glass-section {
         /* Fondo oscuro necesario para que el glassmorphism resalte */
-        background-color: var(--color-primary, #1A1A1A); 
+        background-color: var(--color-primary); 
         padding: 60px 20px;
         display: flex;
         align-items: center;
@@ -33,7 +33,7 @@ $cta_primary_text = $HomeIntro['primaryCTA'];
         height: 40vw; 
         max-width: 400px;
         max-height: 400px;
-        background: var(--color-soft, #33E0FF); /* Azul Celeste */
+        background: var(--color-soft, var(--color-soft)); /* Azul Celeste */
         border-radius: 50%;
         filter: blur(180px);
         opacity: 0.2;
@@ -49,22 +49,22 @@ $cta_primary_text = $HomeIntro['primaryCTA'];
         z-index: var(--z-content, 10);
         
         /* GLASSMORHPISM */
-        background: rgba(44, 44, 44, 0.4); /* --color-secondary con transparencia */
+        background: rgba(var(--color-secondary-rgb), 0.4); /* --color-secondary con transparencia */
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); 
+        border: 1px solid var(--color-light-alpha-15);
+        box-shadow: 0 10px 40px var(--color-dark-alpha-50);
         transition: var(--transition-medium, all 0.5s ease-in-out);
     }
 
     .cta-glass-card:hover {
         transform: scale(1.01);
-        box-shadow: 0 15px 50px rgba(0, 188, 212, 0.15); /* Sombra con acento */
+        box-shadow: 0 15px 50px var(--color-accent-alpha-15); /* Sombra con acento */
     }
 
     .cta-glass-card h2 {
         font-family: var(--font-heading, 'Montserrat');
-        color: var(--color-light, #EBEBEB); 
+        color: var(--color-silver-soft); 
         font-size: 2.8rem;
         margin-bottom: 0.8rem;
         line-height: 1.2;
@@ -72,7 +72,7 @@ $cta_primary_text = $HomeIntro['primaryCTA'];
     
     .cta-glass-card p {
         font-family: var(--font-body, 'Open Sans');
-        color: var(--color-light, #EBEBEB);
+        color: var(--color-silver-soft);
         font-size: 1.15rem;
         margin-bottom: 2.5rem;
         opacity: 0.8;
@@ -89,17 +89,17 @@ $cta_primary_text = $HomeIntro['primaryCTA'];
         transition: var(--transition-fast, all 0.25s ease-in-out);
         
         /* Colores */
-        background: var(--color-accent, #00BCD4); 
-        color: var(--color-primary, #1A1A1A); 
+        background: var(--color-accent, var(--color-accent)); 
+        color: var(--color-primary); 
         border: none;
         letter-spacing: 1px;
-        box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+        box-shadow: 0 4px 15px var(--color-accent-alpha-40);
     }
 
     .cta-button:hover {
-        background: var(--color-soft, #33E0FF); 
+        background: var(--color-soft, var(--color-soft)); 
         transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(51, 224, 255, 0.6); 
+        box-shadow: 0 8px 25px var(--color-soft-alpha-60); 
     }
 
     @media (max-width: 900px) {

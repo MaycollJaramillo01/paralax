@@ -17,7 +17,7 @@
 .partners-v1 {
   text-align:center;
   padding: clamp(3rem,5vw,5rem) 1rem;
-  color: #fff;
+  color: var(--color-light);
 }
 .partners-v1-container { width:min(1100px,95%); margin:0 auto; }
 .partners-v1 h2 { font-family:var(--font-heading); font-size:clamp(1.8rem,3vw,2.4rem); }

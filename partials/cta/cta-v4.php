@@ -8,16 +8,16 @@
     :root{
       --cta-primary: <?php echo $BrandColors['primary']; ?>;
       --cta-accent:  <?php echo $BrandColors['secondary']; ?>;
-      --cta-white:   #fff;
-      --cta-dark:    #0f1b24;
+      --cta-white:   var(--color-light);
+      --cta-dark:    var(--color-slate-ink);
     }
     .cta-nova{
       position: relative;
       isolation: isolate;
       padding: clamp(48px,6vw,84px) 0;
       background:
-        radial-gradient(1200px 300px at 80% -20%, rgba(255,255,255,.10), transparent 60%) ,
-        linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+        radial-gradient(1200px 300px at 80% -20%, var(--color-light-alpha-10), transparent 60%) ,
+        linear-gradient(180deg, var(--color-snow) 0%, var(--color-slate-haze) 100%);
     }
     .cta-nova .wrap{
       display:grid;
@@ -41,7 +41,7 @@
       color: var(--cta-primary);
     }
     .cta-sub{
-      color:#334155;
+      color:var(--color-slate-700);
       font: 500 1.05rem/1.6 var(--body-font, Inter);
       max-width: 60ch;
     }
@@ -51,7 +51,7 @@
       display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:10px 18px;
     }
     .cta-points li{
-      color:#0b1320; display:flex; gap:10px; align-items:flex-start;
+      color:var(--color-night-indigo); display:flex; gap:10px; align-items:flex-start;
       font:500 .98rem/1.5 var(--body-font, Inter);
     }
     .cta-points i{ color: var(--cta-accent); margin-top:.15rem; }
@@ -66,7 +66,7 @@
     }
     .btn-cta--primary{
       background: var(--cta-primary); color: var(--cta-white);
-      box-shadow: 0 10px 24px rgba(0,0,0,.15);
+      box-shadow: 0 10px 24px var(--color-dark-alpha-15);
     }
     .btn-cta--primary:hover{ transform: translateY(-2px); }
     .btn-cta--ghost{
@@ -80,14 +80,14 @@
     /* Card lateral con datos de confianza */
     .cta-aside{
       background: var(--cta-dark);
-      color:#e5ecf3; border-radius:18px; padding:24px;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 10px 28px rgba(2,12,21,.35);
+      color:var(--color-ice); border-radius:18px; padding:24px;
+      box-shadow: inset 0 0 0 1px var(--color-light-alpha-06), 0 10px 28px var(--color-deep-space-alpha-35);
       position: relative; overflow:hidden;
     }
     .cta-aside::after{
       content:""; position:absolute; inset:-40% -20% auto auto; height:140%;
       width:60%; transform:rotate(35deg);
-      background: linear-gradient(90deg, rgba(255,255,255,.06), transparent 40%);
+      background: linear-gradient(90deg, var(--color-light-alpha-06), transparent 40%);
       pointer-events:none;
     }
     .trust{
@@ -95,7 +95,7 @@
     }
     .trust div{ display:flex; align-items:center; gap:10px; }
     .trust i{ color: var(--cta-accent); }
-    .cta-aside small{ color:#b7c4d1; }
+    .cta-aside small{ color:var(--color-steel-blue); }
   </style>
 
   <meta itemprop="name" content="<?= htmlspecialchars($Company) ?>">

@@ -85,12 +85,12 @@ $T_full_track = array_merge($T_all, $T_all, $T_all); // Repetir 3 veces para may
 <style>
 /* ====== TESTIMONIALS V2 (aislado con prefijo tmv2-) ====== */
 #tmv2{
- --tmv2-bg: #F5F5DC;     /* usa tu root light */
- --tmv2-dark: #0A0A0A;
- --tmv2-accent: #8B4513;
- --tmv2-neutral:#4D4D4D;
+ --tmv2-bg: var(--color-ivory);     /* usa tu root light */
+ --tmv2-dark: var(--color-dark);
+--tmv2-accent: var(--color-warm-base);
+ --tmv2-neutral:var(--color-neutral-deep);
  --tmv2-radius: 1rem;
- --tmv2-shadow: 0 8px 24px rgba(0,0,0,.10);
+--tmv2-shadow: 0 8px 24px var(--color-dark-alpha-10);
 
  background: var(--tmv2-bg);
  padding: clamp(3rem,5vw,5rem) 0;
@@ -102,11 +102,11 @@ $T_full_track = array_merge($T_all, $T_all, $T_all); // Repetir 3 veces para may
 .tmv2-header{ margin-bottom:2rem; }
 .tmv2-badge{
  display:inline-flex; gap:.45rem; align-items:center;
- background:#111; color:#fff; padding:.4rem 1rem;
+ background:var(--color-dark); color:var(--color-light); padding:.4rem 1rem;
  border-radius:999px; font-weight:700; font-size:.9rem;
- box-shadow:0 2px 8px rgba(0,0,0,.18);
+ box-shadow:0 2px 8px var(--color-dark-alpha-18);
 }
-.tmv2-badge i{ color:#FFD700; }
+.tmv2-badge i{ color:var(--color-amber-bright); }
 #tmv2 h2{
  margin:1rem auto 0; color:var(--tmv2-dark);
  font-family: var(--font-heading, Montserrat);
@@ -136,13 +136,13 @@ $T_full_track = array_merge($T_all, $T_all, $T_all); // Repetir 3 veces para may
 
 .tmv2-card{
  flex:0 0 360px;
- background:#fff; border-radius: var(--tmv2-radius);
+ background:var(--color-light); border-radius: var(--tmv2-radius);
  box-shadow: var(--tmv2-shadow);
  padding:1.6rem 1.4rem;
  text-align:left;
  transition: transform .35s ease, box-shadow .35s ease;
 }
-.tmv2-card:hover{ transform: translateY(-6px); box-shadow:0 12px 30px rgba(0,0,0,.15); }
+.tmv2-card:hover{ transform: translateY(-6px); box-shadow:0 12px 30px var(--color-dark-alpha-15); }
 
 .tmv2-quote{ color:var(--tmv2-accent); font-size:1.2rem; margin-bottom:.5rem; display:block; }
 .tmv2-text{ color:var(--tmv2-dark); line-height:1.55; margin:0 0 1rem; }
@@ -151,7 +151,7 @@ $T_full_track = array_merge($T_all, $T_all, $T_all); // Repetir 3 veces para may
 .tmv2-avatar{
  width:44px; height:44px; border-radius:50%;
  display:flex; align-items:center; justify-content:center;
- background: var(--tmv2-accent); color:#fff; font-size:1.1rem;
+ background: var(--tmv2-accent); color:var(--color-light); font-size:1.1rem;
 }
 .tmv2-name{ margin:0; font-size:1rem; color:var(--tmv2-dark); }
 .tmv2-role{ margin:0; font-size:.85rem; color:var(--tmv2-neutral); }

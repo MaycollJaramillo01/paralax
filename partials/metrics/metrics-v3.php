@@ -30,7 +30,7 @@ if (!isset($BlogIdeas)) {
 <style>
 .insights {
   background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-soft) 100%);
-  color: #fff;
+  color: var(--color-light);
   padding: clamp(3rem,5vw,5rem) 1rem;
   position: relative;
   overflow: hidden;
@@ -48,14 +48,14 @@ if (!isset($BlogIdeas)) {
   gap:1.8rem;
 }
 .insight {
-  background: rgba(255,255,255,.1);
+  background: var(--color-light-alpha-10);
   padding:2rem 1.5rem;
   border-radius:var(--radius-lg);
   backdrop-filter:blur(10px);
   transition: transform .4s var(--transition-smooth);
   text-align:left;
 }
-.insight:hover { transform:translateY(-5px); background: rgba(255,255,255,.15); }
+.insight:hover { transform:translateY(-5px); background: var(--color-light-alpha-15); }
 .insight-tag {
   font-size:.8rem;
   text-transform:uppercase;
@@ -65,18 +65,18 @@ if (!isset($BlogIdeas)) {
   opacity:.85;
 }
 .insight h3 {
-  color:#fff;
+  color:var(--color-light);
   font-family:var(--font-heading);
   margin-bottom:.6rem;
   font-size:1.15rem;
 }
 .insight p { font-size:.9rem; opacity:.9; margin-bottom:1rem; }
 .read-more {
-  color:#fff;
+  color:var(--color-light);
   font-weight:600;
   text-decoration:none;
-  border-bottom:2px solid rgba(255,255,255,.4);
+  border-bottom:2px solid var(--color-light-alpha-40);
   transition:all .3s ease;
 }
-.read-more:hover { border-color:#fff; }
+.read-more:hover { border-color:var(--color-light); }
 </style>

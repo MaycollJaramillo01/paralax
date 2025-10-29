@@ -88,10 +88,10 @@ justify-items: center;
 /* ================= CARD (ANIMACIÓN MEJORADA) ================= */
 .svDark__card {
 width: 100%;
-background: #fff;
+background: var(--color-light);
 border-radius: var(--radius-lg);
 padding: 1.8rem;
-box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+box-shadow: 0 10px 25px var(--color-dark-alpha-08);
 transition:
 transform 1.2s cubic-bezier(0.19,1,0.22,1), /* Duración aumentada */
 box-shadow 0.9s cubic-bezier(0.19,1,0.22,1),
@@ -103,11 +103,11 @@ perspective: 1000px;
 .svDark__card.dark {
 background: var(--color-primary);
 color: var(--color-light);
-box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+box-shadow: 0 10px 35px var(--color-dark-alpha-35);
 }
 .svDark__card.dark h3,
 .svDark__card.dark p {
-color: rgba(255,255,255,0.92);
+color: var(--color-light-alpha-92);
 }
 .svDark__card.dark .svDark__icon i {
 color: var(--color-soft);
@@ -116,8 +116,8 @@ color: var(--color-soft);
 /* Inclinación a la izquierda y elevación más pronunciada */
 transform: rotateY(-18deg) rotateX(8deg) translateY(-10px);
 box-shadow:
-0 35px 70px rgba(0,0,0,0.35), /* Sombra más profunda */
-0 0 40px rgba(184,134,11,0.45); /* Brillo aumentado */
+0 35px 70px var(--color-dark-alpha-35), /* Sombra más profunda */
+0 0 40px var(--color-warm-glow-alpha-45); /* Brillo aumentado */
 }
 
 /* ICON + TEXT */
@@ -148,7 +148,7 @@ color: var(--color-accent);
 transition: color .3s ease;
 }
 .svDark__card.dark .svDark__link {
-color: #00e382;
+color: var(--color-success-bright);
 }
 .svDark__link:hover { color: var(--color-soft); }
 

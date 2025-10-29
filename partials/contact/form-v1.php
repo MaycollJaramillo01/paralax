@@ -24,7 +24,7 @@
 <style>
 #contact-v1 {
   background: linear-gradient(135deg,var(--color-primary),var(--color-secondary));
-  color: #fff;
+  color: var(--color-light);
   padding: clamp(3rem,6vw,6rem) 2rem;
 }
 .contact-container {
@@ -37,7 +37,7 @@
 }
 .contact-info ul { list-style: none; padding: 0; margin-top: 1rem; }
 .contact-info li { margin: .5rem 0; }
-.contact-info a { color: #fff; text-decoration: underline; }
+.contact-info a { color: var(--color-light); text-decoration: underline; }
 .contact-form input, .contact-form textarea {
   width: 100%; border: none; outline: none;
   padding: 1rem; border-radius: .5rem;
@@ -45,7 +45,7 @@
 }
 .contact-form button {
   background: var(--color-accent);
-  color: #fff; border: none; padding: 1rem 2rem;
+  color: var(--color-light); border: none; padding: 1rem 2rem;
   border-radius: .5rem; cursor: pointer;
   transition: transform .3s ease, background .3s ease;
 }

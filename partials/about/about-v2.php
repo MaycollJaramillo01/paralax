@@ -60,9 +60,9 @@ $chips = array_filter([
 
 .about-v2 {
   position: relative;
-  background: #ffffff;
+  background: var(--color-soft-white);
   padding: 8rem 0;
-  color: var(--color-dark, #1a1a1a);
+  color: var(--color-dark, var(--color-primary));
 }
 
 .about-v2__wrapper {
@@ -82,12 +82,12 @@ $chips = array_filter([
 
 .about-v2__content .short {
   font-size: 1.2rem;
-  color: var(--color-secondary, #444);
+  color: var(--color-secondary, var(--color-neutral-deep));
   margin-bottom: 1.4rem;
 }
 
 .about-v2__content .detail {
-  color: rgba(0, 0, 0, 0.78);
+  color: var(--color-dark-alpha-78);
   font-size: 1.05rem;
   line-height: 1.75;
   margin-bottom: 2.2rem;
@@ -105,18 +105,18 @@ $chips = array_filter([
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--color-light, #f2f4f5);
+  background: var(--color-porcelain);
   border-radius: 50px;
   padding: 0.6rem 1.1rem;
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--color-dark, #1a1a1a);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  color: var(--color-dark, var(--color-primary));
+  box-shadow: 0 2px 8px var(--color-dark-alpha-05);
   transition: all 0.3s ease;
 }
 .chip:hover {
-  background: var(--color-accent, #0fb36d);
-  color: #fff;
+  background: var(--color-success);
+  color: var(--color-light);
   transform: translateY(-2px);
 }
 .chip__icon {
@@ -128,7 +128,7 @@ $chips = array_filter([
   position: relative;
   border-radius: var(--radius-lg, 16px);
   overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 15px 40px var(--color-dark-alpha-10);
 }
 .about-v2__image img {
   width: 100%;
@@ -158,12 +158,12 @@ $chips = array_filter([
 }
 
 .btn-primary {
-  background: var(--color-accent, #0fb36d);
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(15,179,109,0.3);
+  background: var(--color-success);
+  color: var(--color-light);
+  box-shadow: 0 8px 20px var(--color-success-alpha-30);
 }
 .btn-primary:hover {
-  background: #0a8a55;
+  background: var(--color-success-dark);
   transform: translateY(-3px);
 }
 

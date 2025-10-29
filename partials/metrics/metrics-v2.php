@@ -47,7 +47,7 @@
   gap: 2rem;
 }
 .step {
-  background: #fff;
+  background: var(--color-light);
   padding: 2rem 1.5rem;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);

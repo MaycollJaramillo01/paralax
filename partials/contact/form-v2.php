@@ -19,13 +19,13 @@
 .contact-v2 {
   position: relative;
   background: url('assets/images/hero/hero3.jpg') center/cover fixed;
-  color: #fff;
+  color: var(--color-light);
   padding: clamp(4rem,6vw,8rem) 2rem;
   text-align: center;
 }
 .contact-v2 .overlay {
   position: absolute; inset: 0;
-  background: rgba(0,0,0,.6);
+  background: var(--color-dark-alpha-60);
 }
 .contact-v2-content {
   position: relative; z-index: 2;
@@ -37,13 +37,13 @@
   width: 100%; border: none; outline: none;
   border-radius: .4rem; padding: 1rem;
   margin-bottom: 1rem; font-size: 1rem;
-  background: rgba(255,255,255,0.15); color: #fff;
+  background: var(--color-light-alpha-15); color: var(--color-light);
 }
-.contact-v2 input::placeholder, .contact-v2 textarea::placeholder { color: rgba(255,255,255,0.7); }
+.contact-v2 input::placeholder, .contact-v2 textarea::placeholder { color: var(--color-light-alpha-70); }
 .contact-v2 button {
   background: var(--color-accent);
   border: none; padding: 1rem 2rem;
-  border-radius: 2rem; color: #fff;
+  border-radius: 2rem; color: var(--color-light);
   cursor: pointer; transition: transform .3s;
 }
 .contact-v2 button:hover { transform: scale(1.05); }
