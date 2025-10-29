@@ -11,41 +11,11 @@
 
   const UI = {
     init() {
-      this.modals();
+      App.Modules?.Modal?.init({ utils: Utils, bus: Bus });
       this.tabs();
       this.tooltips();
       this.accordions();
       Bus.emit("ui:init");
-    },
-
-    modals() {
-      Utils.qsa("[data-modal-target]").forEach(trigger => {
-        const id = trigger.dataset.modalTarget;
-        const modal = document.getElementById(id);
-        if (!modal) return;
-
-        Utils.on(trigger, "click", e => {
-          e.preventDefault();
-          modal.classList.add("open");
-          document.body.style.overflow = "hidden";
-          Bus.emit("ui:modal:open", id);
-        });
-
-        Utils.qsa(".modal-close", modal).forEach(btn =>
-          Utils.on(btn, "click", () => {
-            modal.classList.remove("open");
-            document.body.style.overflow = "";
-            Bus.emit("ui:modal:close", id);
-          })
-        );
-
-        Utils.on(modal, "click", e => {
-          if (e.target.classList.contains("modal")) {
-            modal.classList.remove("open");
-            document.body.style.overflow = "";
-          }
-        });
-      });
     },
 
     tabs() {
