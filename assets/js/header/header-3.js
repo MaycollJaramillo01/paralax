@@ -1,35 +1,35 @@
 /* =========================================================================
- * header-3.js — Aurora Floating Header Controller
+ * header-3.js — Header flotante reutilizando App.Modules.Nav
  * ========================================================================= */
+
 (function (global) {
   'use strict';
-  const d = document;
-  const header = d.querySelector('.header-floating');
-  const menu = d.getElementById('mobile-menu');
-  const toggle = d.getElementById('menu-toggle');
-  const closeBtn = d.getElementById('menu-close');
-  const overlay = d.getElementById('menu-overlay');
 
-  if (!header) return;
+  const App = global.App || (global.App = {});
+  const NavService = App.Modules && App.Modules.Nav;
 
-  let lastY = 0;
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY || 0;
-    const down = y > lastY;
-    const scrolled = y > 60;
-    header.classList.toggle('scrolled', scrolled);
-    header.style.opacity = down && y > 150 ? '0.95' : '1';
-    lastY = y;
-  });
-
-  function toggleMenu(force) {
-    const open = typeof force === 'boolean' ? force : !menu.classList.contains('open');
-    menu.classList.toggle('open', open);
-    d.body.style.overflow = open ? 'hidden' : '';
+  if (!NavService) {
+    console.warn('[header-3] NavService no disponible.');
+    return;
   }
 
-  toggle?.addEventListener('click', () => toggleMenu(true));
-  closeBtn?.addEventListener('click', () => toggleMenu(false));
-  overlay?.addEventListener('click', () => toggleMenu(false));
+  const controller = NavService.register({
+    id: 'header-3',
+    header: '.header-floating',
+    menu: '#mobile-menu',
+    panel: '.menu-panel',
+    toggle: '#menu-toggle',
+    close: ['#menu-close'],
+    overlay: '#menu-overlay',
+    scrollClasses: { scrolled: 'scrolled', down: 'scrolling-down', up: 'scrolling-up' },
+    onScroll: ({ y, goingDown, controller }) => {
+      const header = controller?.elements.header;
+      if (!header) return;
+      header.style.opacity = goingDown && y > 150 ? '0.95' : '1';
+    },
+  });
 
+  if (!controller) return;
+
+  global.Header3 = controller;
 })(window);

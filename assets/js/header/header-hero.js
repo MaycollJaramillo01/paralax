@@ -1,74 +1,78 @@
-(function (w, d) {
+/* =========================================================================
+ * header-hero.js — Drawer hero integrado con App.Modules.Nav
+ * ========================================================================= */
+
+(function (global, d) {
   'use strict';
 
+  const App = global.App || (global.App = {});
+  const NavService = App.Modules && App.Modules.Nav;
+
   const header = d.querySelector('.header-hero.hh');
-  const burger = d.getElementById('hh-burger');
   const drawer = d.getElementById('hh-drawer');
-  const closeBtn = drawer ? drawer.querySelector('.hh__close') : null;
 
-  // sticky scroll state for stronger glass
-  let lastY = 0;
-  function onScroll() {
-    const y = w.scrollY || w.pageYOffset || 0;
-    header && header.classList.toggle('is-scrolled', y > 8);
-    lastY = y;
-  }
-  w.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  if (!NavService || !header || !drawer) return;
 
-  // Drawer open/close
-  function openDrawer() {
-    if (!drawer) return;
-    drawer.removeAttribute('hidden');
-    drawer.setAttribute('open', '');
-    burger.setAttribute('aria-expanded', 'true');
-    d.documentElement.classList.add('hero-blur-active'); // optional blur style from hero
-    // focus first link
-    const first = drawer.querySelector('a,button');
-    first && setTimeout(()=> first.focus(), 50);
-    // prevent body scroll
-    d.body.style.overflow = 'hidden';
-  }
-  function closeDrawer() {
-    if (!drawer) return;
-    drawer.removeAttribute('open');
-    burger.setAttribute('aria-expanded', 'false');
-    d.documentElement.classList.remove('hero-blur-active');
-    d.body.style.overflow = '';
-    setTimeout(()=> drawer.setAttribute('hidden',''), 250);
-    burger.focus();
-  }
-
-  burger && burger.addEventListener('click', openDrawer);
-  closeBtn && closeBtn.addEventListener('click', closeDrawer);
-  drawer && drawer.addEventListener('click', (e)=>{
-    if (e.target === drawer) closeDrawer();
-  });
-  w.addEventListener('keydown', (e)=>{
-    if (e.key === 'Escape' && drawer && drawer.hasAttribute('open')) closeDrawer();
+  const controller = NavService.register({
+    id: 'header-hero',
+    header,
+    menu: drawer,
+    panel: '.hh__drawer-panel',
+    toggle: '#hh-burger',
+    close: ['.hh__close'],
+    overlay: '#hh-drawer',
+    scrollThreshold: 8,
+    onOpen: (ctrl) => {
+      drawer.removeAttribute('hidden');
+      drawer.setAttribute('open', '');
+      ctrl?.elements.toggle?.setAttribute('aria-expanded', 'true');
+      d.documentElement.classList.add('hero-blur-active');
+      focusFirstLink(drawer);
+    },
+    onClose: (ctrl) => {
+      drawer.removeAttribute('open');
+      ctrl?.elements.toggle?.setAttribute('aria-expanded', 'false');
+      d.documentElement.classList.remove('hero-blur-active');
+      setTimeout(() => drawer.setAttribute('hidden', ''), 250);
+    },
+    onScroll: ({ controller }) => {
+      controller?.elements.header?.classList.toggle('is-scrolled', (global.scrollY || 0) > 8);
+    },
   });
 
-  // Prevent scroll bounce at panel edges
-  if (drawer) {
-    const panel = drawer.querySelector('.hh__drawer-panel');
-    panel.addEventListener('wheel', (e)=>{
+  if (!controller) return;
+
+  App.Bus?.on?.('menu:close', () => controller.close());
+  App.Bus?.on?.('menu:open', () => controller.open());
+
+  function focusFirstLink(container) {
+    setTimeout(() => {
+      const first = container.querySelector('a,button');
+      first && first.focus();
+    }, 50);
+  }
+
+  drawer.addEventListener('click', (e) => {
+    if (e.target === drawer) controller.close();
+  });
+
+  const panel = drawer.querySelector('.hh__drawer-panel');
+  if (panel) {
+    panel.addEventListener('wheel', (e) => {
       const atTop = panel.scrollTop === 0 && e.deltaY < 0;
       const atBottom = Math.ceil(panel.scrollTop + panel.clientHeight) >= panel.scrollHeight && e.deltaY > 0;
       if (atTop || atBottom) e.preventDefault();
     }, { passive: false });
   }
 
-  // Sync with site bus if available
-  if (w.App && App.Bus) {
-    App.Bus.on('menu:close', closeDrawer);
-    App.Bus.on('menu:open', openDrawer);
-  }
-
-  // When hero / parallax refreshes layout
-  d.addEventListener('DOMContentLoaded', ()=>{
-    if (w.ParallaxKit && typeof ParallaxKit.refresh === 'function') {
-      try { ParallaxKit.refresh(); } catch(_) {}
-    }
+  global.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && controller.isOpen()) controller.close();
   });
 
+  // Refresh parallax when ready
+  d.addEventListener('DOMContentLoaded', () => {
+    if (global.ParallaxKit?.refresh) {
+      try { global.ParallaxKit.refresh(); } catch (_) {}
+    }
+  });
 })(window, document);

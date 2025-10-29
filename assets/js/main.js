@@ -17,6 +17,8 @@
   // -----------------------------------------------------------------------
   const App = (global.App = global.App || {});
   App.version = App.version || '1.0.0';
+  const Modules = App.Modules || (App.Modules = {});
+  App.Services = App.Services || {};
 
   // -----------------------------------------------------------------------
   // Feature Detection
@@ -249,34 +251,41 @@
   App.IO = IO;
 
   // -----------------------------------------------------------------------
-  // Lazy Load de imágenes (data-src / data-srcset) con fallback
+  // LazyLoad fallback (si no existe App.Modules.Lazy)
   // -----------------------------------------------------------------------
-  const Lazy = (() => {
-    function hydrate(el) {
-      const src = el.getAttribute('data-src');
-      const srcset = el.getAttribute('data-srcset');
-      if (src) el.src = src;
-      if (srcset) el.srcset = srcset;
-      el.removeAttribute('data-src');
-      el.removeAttribute('data-srcset');
-      el.onload = () => el.classList.add('is-loaded');
-      el.onerror = () => el.classList.add('is-error');
-    }
-    function bind() {
-      IO.observe('img[data-src], source[data-srcset]', (el) => {
-        if (el.tagName.toLowerCase() === 'img') hydrate(el);
-        else if (el.tagName.toLowerCase() === 'source') {
-          const srcset = el.getAttribute('data-srcset');
-          if (srcset) { el.srcset = srcset; el.removeAttribute('data-srcset'); }
-          const parentImg = el.parentElement && el.parentElement.querySelector('img');
-          if (parentImg && parentImg.hasAttribute('data-src')) hydrate(parentImg);
+  function bindLegacyLazy() {
+    IO.observe('img[data-src], source[data-srcset]', (el) => {
+      if (el.tagName.toLowerCase() === 'img') {
+        const src = el.getAttribute('data-src');
+        const srcset = el.getAttribute('data-srcset');
+        if (src) el.src = src;
+        if (srcset) el.srcset = srcset;
+        el.removeAttribute('data-src');
+        el.removeAttribute('data-srcset');
+        el.onload = () => el.classList.add('is-loaded');
+        el.onerror = () => el.classList.add('is-error');
+      } else if (el.tagName.toLowerCase() === 'source') {
+        const srcset = el.getAttribute('data-srcset');
+        if (srcset) { el.srcset = srcset; el.removeAttribute('data-srcset'); }
+        const parentImg = el.parentElement && el.parentElement.querySelector('img');
+        if (parentImg && parentImg.hasAttribute('data-src')) {
+          const src = parentImg.getAttribute('data-src');
+          if (src) parentImg.src = src;
+          parentImg.removeAttribute('data-src');
         }
-      }, { rootMargin: '20% 0px', threshold: [0, 0.01], once: true });
-    }
-    return { bind };
-  })();
+      }
+    }, { rootMargin: '20% 0px', threshold: [0, 0.01], once: true });
+  }
 
-  App.Lazy = Lazy;
+  App.Lazy = Modules.Lazy || { init: bindLegacyLazy, bind: bindLegacyLazy };
+
+  function bootstrapModule(mod, payload) {
+    if (!mod || typeof mod.init !== 'function') return false;
+    if (mod.__bootstrapped) return false;
+    try { mod.init(payload || {}); } catch (err) { console.error('[App] módulo init error', err); }
+    mod.__bootstrapped = true;
+    return true;
+  }
 
   // -----------------------------------------------------------------------
   // Breakpoints reactivos (emite eventos al cruzarlos)
@@ -371,14 +380,17 @@
   // Integración con ParallaxKit (si existe)
   // -----------------------------------------------------------------------
   const ParallaxBridge = (() => {
+    const getEngine = () => Modules.Scroll || App.ParallaxKit || global.ParallaxKit;
     function init() {
-      if (global.ParallaxKit && typeof global.ParallaxKit.init === 'function') {
-        try { global.ParallaxKit.init(); } catch (e) { console.warn('[ParallaxKit.init] error:', e); }
+      const engine = getEngine();
+      if (engine && typeof engine.init === 'function') {
+        try { engine.init(); } catch (e) { console.warn('[ParallaxKit.init] error:', e); }
       }
     }
     function refresh() {
-      if (global.ParallaxKit && typeof global.ParallaxKit.refresh === 'function') {
-        try { global.ParallaxKit.refresh(); } catch (e) { console.warn('[ParallaxKit.refresh] error:', e); }
+      const engine = getEngine();
+      if (engine && typeof engine.refresh === 'function') {
+        try { engine.refresh(); } catch (e) { console.warn('[ParallaxKit.refresh] error:', e); }
       }
     }
     return { init, refresh };
@@ -409,11 +421,35 @@
 
     // Bind globales
     SmoothScroll.bind();
-    Lazy.bind();
+    const scrollBoot = bootstrapModule(Modules.Scroll, { utils: Utils, bus: Bus, feature: Feature });
+    if (scrollBoot) Bus.emit('scroll:boot');
+
+    const lazyBoot = bootstrapModule(Modules.Lazy, { utils: Utils, bus: Bus });
+    if (lazyBoot) Bus.emit('lazy:boot');
+    else bindLegacyLazy();
+
+    const formsBoot = bootstrapModule(Modules.Forms, { utils: Utils, bus: Bus });
+    if (formsBoot) Bus.emit('forms:boot');
+
+    const modalBoot = bootstrapModule(Modules.Modal, { utils: Utils, bus: Bus });
+    if (modalBoot) Bus.emit('modal:boot');
+
+    const themeBoot = bootstrapModule(Modules.Theme, { utils: Utils, bus: Bus });
+    if (themeBoot) Bus.emit('theme:boot');
+
     Breakpoints.init();
     A11y.initSkipLinks();
     HeaderHelper.init();
     ParallaxBridge.init();
+
+    App.Services.scroll = Modules.Scroll || App.ParallaxKit || null;
+    App.Services.lazy = Modules.Lazy || App.Lazy;
+    App.Services.forms = Modules.Forms || null;
+    App.Services.modal = Modules.Modal || null;
+    App.Services.theme = Modules.Theme || null;
+    App.Services.nav = Modules.Nav || null;
+
+    Bus.emit('app:modules:ready', { services: App.Services });
 
     // Exponer eventos listos
     Bus.emit('app:ready', { version: App.version, feature: Feature });
