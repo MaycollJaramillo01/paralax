@@ -209,11 +209,12 @@ $chips = array_filter([
 }
 .btn-primary {
     background: var(--color-brand-blue);
-    color: var(--color-light);
+    color: var(--color-dark);
     box-shadow: 0 10px 30px var(--color-brand-blue-alpha-30);
 }
 .btn-primary:hover {
-    background: var(--color-brand-blue-dark);
+    background: var(--color-brand-blue-bright);
+    color: var(--color-dark);
     transform: translateY(-3px);
 }
 

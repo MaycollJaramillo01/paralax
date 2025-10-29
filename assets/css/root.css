@@ -560,7 +560,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.85rem 1.75rem;
   border: 2px solid var(--color-accent);
   border-radius: var(--radius-md);
-  color: var(--color-accent);
+  color: var(--color-accent-contrast);
   background: transparent;
   transition: var(--transition-medium);
   position: relative;
