@@ -60,4 +60,5 @@ $lcp2 = $HeroImages[2] ?? 'assets/images/hero/hero3.jpg';
   <link rel="stylesheet" href="assets/css/header-3.css">
   <link rel="stylesheet" href="assets/css/header-2.css">
   <link rel="stylesheet" href="assets/css/header-1.css">
+
 </head>

@@ -199,6 +199,7 @@
     bottom: 1.5rem;
     right: 50%;
     transform: translateX(50%);
+    z-index: 800;
   }
   .hero4__title {
     font-size: 2rem;

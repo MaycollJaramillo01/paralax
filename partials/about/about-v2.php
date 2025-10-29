@@ -167,16 +167,6 @@ $chips = array_filter([
   transform: translateY(-3px);
 }
 
-.btn-outline {
-  border: 2px solid var(--color-accent, #0fb36d);
-  color: var(--color-accent, #0fb36d);
-}
-.btn-outline:hover {
-  background: var(--color-accent, #0fb36d);
-  color: #fff;
-  transform: translateY(-3px);
-}
-
 /* === Responsive === */
 @media (max-width: 992px) {
   .about-v2 {

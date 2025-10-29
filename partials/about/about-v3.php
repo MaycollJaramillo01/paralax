@@ -51,6 +51,7 @@ $chips = array_filter([
         
         <div class="content-block" data-animate="slide-right">
             <h2 class="title" data-split="words" data-stagger="25"><?= htmlspecialchars($title) ?></h2>
+            <br>
             <p class="subtitle"><?= htmlspecialchars($short) ?></p>
             <p class="detail"><?= htmlspecialchars($detail) ?></p>
 
@@ -215,16 +216,7 @@ $chips = array_filter([
     background: #0056b3;
     transform: translateY(-3px);
 }
-.btn-outline {
-    border: 2px solid var(--color-primary, #007bff);
-    color: var(--color-primary, #007bff);
-    background: transparent;
-}
-.btn-outline:hover {
-    background: var(--color-primary, #007bff);
-    color: #fff;
-    transform: translateY(-3px);
-}
+
 
 /* === Bloque de Características (Derecha) === */
 .features-block {

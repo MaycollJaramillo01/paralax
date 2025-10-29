@@ -144,7 +144,6 @@ if (!isset($Testimonials) || !is_array($Testimonials)) {
   opacity:1;
   transform:translateY(0);
   transition:opacity .8s var(--transition-smooth),transform .8s var(--transition-smooth);
-  
 }
 
 /* Responsive */
