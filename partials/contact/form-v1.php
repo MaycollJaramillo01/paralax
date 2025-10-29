@@ -45,11 +45,11 @@
 }
 .contact-form button {
   background: var(--color-accent);
-  color: var(--color-light); border: none; padding: 1rem 2rem;
+  color: var(--color-accent-contrast); border: none; padding: 1rem 2rem;
   border-radius: .5rem; cursor: pointer;
-  transition: transform .3s ease, background .3s ease;
+  transition: transform .3s ease, background .3s ease, color .3s ease;
 }
-.contact-form button:hover { transform: translateY(-3px); background: var(--color-light); color: var(--color-dark); }
+.contact-form button:hover { transform: translateY(-3px); background: var(--color-soft); color: var(--color-accent-contrast); }
 </style>
 
 <script>
