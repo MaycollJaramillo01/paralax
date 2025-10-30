@@ -183,12 +183,18 @@ $chips = array_filter([
 }
 .chip:hover {
     border-color: var(--color-success);
-    color: var(--color-success);
+    background: var(--color-success-contrast);
+    color: var(--color-light, #F8F9FA);
+    box-shadow: 0 6px 18px rgba(var(--color-success-contrast-rgb), 0.45);
     transform: translateY(-2px);
 }
 .chip__icon {
     font-size: 1.1rem;
     color: var(--color-success);
+    transition: color 0.3s ease;
+}
+.chip:hover .chip__icon {
+    color: var(--color-light, #F8F9FA);
 }
 
 /* --- Botones --- */
