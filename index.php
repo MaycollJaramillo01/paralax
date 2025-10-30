@@ -15,6 +15,14 @@ $templateMap = [
         'label' => 'Home 3 — Immersive parallax',
         'sections' => ['hero', 'hero-alt', 'hero-canvas', 'faq', 'about', 'services', 'services-alt', 'projects', 'testimonials', 'metrics', 'cta', 'cta-alt', 'partners', 'contact'],
     ],
+    'home-4' => [
+        'label' => 'Home 4 — Growth architecture',
+        'sections' => ['hero', 'solutions', 'process', 'case-studies', 'cta'],
+    ],
+    'home-5' => [
+        'label' => 'Home 5 — Campaign accelerator',
+        'sections' => ['hero-alt', 'trust', 'services', 'insights', 'contact'],
+    ],
 ];
 
 $requestedTemplate = $_GET['template'] ?? 'home-1';
