@@ -1,6 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <!-- CORE / FRAMEWORK -->
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/modules/scroll.js" defer></script>
 <script src="assets/js/parallaxkit.js" defer></script>
 <script src="assets/js/scroll-anim.js" defer></script>
 <script src="assets/js/nav-enhance.js" defer></script>
@@ -17,7 +18,7 @@
 <!-- SAFE INIT -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    if (window.ParallaxKit?.init) ParallaxKit.init();
+    if (typeof initScrollAnimations === 'function') initScrollAnimations();
     if (window.ScrollAnim?.init) ScrollAnim.init();
   });
 </script>
@@ -31,9 +32,6 @@
   fa.referrerPolicy = "no-referrer";
   document.head.appendChild(fa);
 
-  // Initialize animations
-  document.addEventListener('DOMContentLoaded', () => {
-    if (typeof initScrollAnimations === 'function') initScrollAnimations();
-  });
+  // Animations are bootstrapped in the safe-init block above
 })();
 </script>

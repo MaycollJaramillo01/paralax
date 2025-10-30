@@ -24,7 +24,7 @@
   // Configuración global
   // ============================================================
   const cfg = {
-    revealSelector: '[data-anim], [data-reveal]',
+    revealSelector: '[data-anim], [data-animate], [data-reveal]',
     hoverSelector: '[data-hover]',
     delayStep: 0.12,   // delay incremental entre elementos de un grupo
     staggerGroupAttr: 'data-anim-group',
@@ -41,6 +41,45 @@
     slideRight: { from: { opacity: 0, transform: 'translateX(-40px)' }, to: { opacity: 1, transform: 'translateX(0)' } },
     zoomIn: { from: { opacity: 0, transform: 'scale(0.9)' }, to: { opacity: 1, transform: 'scale(1)' } },
   };
+
+  const legacyAlias = {
+    fade: 'fade',
+    'fade-in': 'fade',
+    fadein: 'fade',
+    'slide-up': 'slideUp',
+    slideup: 'slideUp',
+    up: 'slideUp',
+    'slide-down': 'slideDown',
+    slidedown: 'slideDown',
+    down: 'slideDown',
+    'slide-left': 'slideLeft',
+    slideleft: 'slideLeft',
+    left: 'slideLeft',
+    'slide-right': 'slideRight',
+    slideright: 'slideRight',
+    right: 'slideRight',
+    'zoom-in': 'zoomIn',
+    zoom: 'zoomIn',
+    zoomin: 'zoomIn',
+  };
+
+  function resolveAnim(el) {
+    if (!el) return 'fade';
+    const explicit = el.dataset.anim;
+    if (explicit && animations[explicit]) return explicit;
+
+    const legacy = (el.dataset.animate || el.dataset.reveal || '').trim();
+    if (legacy) {
+      const key = legacyAlias[legacy] || legacyAlias[legacy.toLowerCase()] || legacyAlias[legacy.replace(/\s+/g, '-').toLowerCase()];
+      if (key && animations[key]) {
+        el.dataset.anim = key;
+        return key;
+      }
+    }
+
+    el.dataset.anim = 'fade';
+    return 'fade';
+  }
 
   // ============================================================
   // Inicialización
@@ -59,8 +98,7 @@
   function prepareElements() {
     Utils.qsa(cfg.revealSelector).forEach(el => {
       Utils.addClass(el, cfg.hiddenClass);
-      const style = el.dataset.anim || el.dataset.reveal || 'fade';
-      if (!animations[style]) el.dataset.anim = 'fade';
+      resolveAnim(el);
     });
   }
 
@@ -83,15 +121,21 @@
       return;
     }
 
-    const type = el.dataset.anim || 'fade';
+    const type = resolveAnim(el);
     const group = el.getAttribute(cfg.staggerGroupAttr);
     const anim = animations[type] || animations.fade;
+    const durationRaw = Number(el.dataset.duration);
+    const duration = !Number.isNaN(durationRaw) && durationRaw > 0 ? durationRaw / 1000 : 0.8;
+    const timing = el.dataset.timing || 'cubic-bezier(0.22, 1, 0.36, 1)';
+    const delayRaw = Number(el.dataset.delay);
+    const hasDelay = !Number.isNaN(delayRaw) && delayRaw >= 0;
+    const baseDelay = hasDelay ? delayRaw / 1000 : 0;
 
-    Object.assign(el.style, anim.from, { transition: 'none' });
+    Object.assign(el.style, anim.from, { transition: 'none', willChange: 'transform, opacity' });
     // Forzar reflow para asegurar animación
     void el.offsetWidth;
     Object.assign(el.style, {
-      transition: 'all 0.8s cubic-bezier(0.22, 1, 0.36, 1)',
+      transition: `all ${duration}s ${timing}`,
       ...anim.to,
     });
     Utils.remClass(el, cfg.hiddenClass);
@@ -101,8 +145,11 @@
     if (group) {
       const groupEls = Utils.qsa(`[${cfg.staggerGroupAttr}="${group}"]`);
       groupEls.forEach((item, i) => {
-        item.style.transitionDelay = `${i * cfg.delayStep}s`;
+        const totalDelay = baseDelay + i * cfg.delayStep;
+        item.style.transitionDelay = `${totalDelay}s`;
       });
+    } else if (hasDelay) {
+      el.style.transitionDelay = `${baseDelay}s`;
     }
 
     Bus.emit('animations:reveal', { el, type });

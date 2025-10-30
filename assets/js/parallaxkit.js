@@ -13,6 +13,25 @@
     return;
   }
 
-  if (document.readyState !== 'loading') Modules.Scroll.init({ bus: App.Bus, utils: App.Utils, feature: App.Feature });
-  else document.addEventListener('DOMContentLoaded', () => Modules.Scroll.init({ bus: App.Bus, utils: App.Utils, feature: App.Feature }));
+  let bootstrapped = false;
+
+  function bootstrapScroll() {
+    if (!Modules.Scroll) return;
+
+    const options = { bus: App.Bus, utils: App.Utils, feature: App.Feature };
+
+    if (!bootstrapped) {
+      Modules.Scroll.init(options);
+      bootstrapped = true;
+    } else if (typeof Modules.Scroll.refresh === 'function') {
+      Modules.Scroll.refresh();
+    }
+  }
+
+  if (document.readyState !== 'loading') bootstrapScroll();
+  else document.addEventListener('DOMContentLoaded', bootstrapScroll);
+
+  global.initScrollAnimations = function initScrollAnimations() {
+    bootstrapScroll();
+  };
 })(window);
