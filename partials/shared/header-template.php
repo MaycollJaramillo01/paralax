@@ -55,6 +55,26 @@ $templateMeta = [
             ['href' => '#contact-v3', 'label' => 'Contact'],
         ],
     ],
+    'home-4' => [
+        'label' => 'Home 4',
+        'tagline' => 'Growth architecture',
+        'anchors' => [
+            ['href' => '#home4-solutions', 'label' => 'Solutions'],
+            ['href' => '#home4-process', 'label' => 'Process'],
+            ['href' => '#home4-case-studies', 'label' => 'Case Studies'],
+            ['href' => '#home4-cta', 'label' => 'CTA'],
+        ],
+    ],
+    'home-5' => [
+        'label' => 'Home 5',
+        'tagline' => 'Campaign accelerator',
+        'anchors' => [
+            ['href' => '#home5-trust', 'label' => 'Proof'],
+            ['href' => '#home5-services', 'label' => 'Services'],
+            ['href' => '#home5-insights', 'label' => 'Insights'],
+            ['href' => '#home5-contact', 'label' => 'Contact'],
+        ],
+    ],
 ];
 
 $currentTemplate = $CurrentTemplate ?? 'home-1';
