@@ -92,6 +92,8 @@
   --color-success-dark-rgb: 10, 138, 85;
   --color-success-bright: #00E382;    /* Verde brillante */
   --color-success-bright-rgb: 0, 227, 130;
+  --color-success-contrast: #033D28;  /* Fondo accesible para variantes hover */
+  --color-success-contrast-rgb: 3, 61, 40;
 
   --color-brand-blue: #007BFF;        /* Azul corporativo */
   --color-brand-blue-rgb: 0, 123, 255;
