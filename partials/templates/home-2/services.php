@@ -1,6 +1,11 @@
 <?php
 @session_start();
-if (!isset($SN)) include __DIR__ . '/text.php';
+if (!isset($SN)) {
+    $dataSource = dirname(__DIR__, 3) . '/text.php';
+    if (file_exists($dataSource)) {
+        include_once $dataSource;
+    }
+}
 
 /* ======= Textos (desde text.php o fallback) ======= */
 $TitleServices = $TitleServices ?? "Committed to your health and wellbeing";

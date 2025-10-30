@@ -1,6 +1,6 @@
 <?php
 @session_start();
-if (!isset($SN)) include_once __DIR__ . '/text.php';
+if (!isset($SN)) include_once dirname(__DIR__, 3) . '/text.php';
 
 /* Más testimonios de prueba para llenar los carruseles (6 en total) */
 if (!isset($Testimonials) || !is_array($Testimonials)) {

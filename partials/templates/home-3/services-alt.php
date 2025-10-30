@@ -1,6 +1,11 @@
 <?php
 @session_start();
-if (!isset($SN)) include __DIR__ . '/text.php';
+if (!isset($SN)) {
+    $dataSource = dirname(__DIR__, 3) . '/text.php';
+    if (file_exists($dataSource)) {
+        include_once $dataSource;
+    }
+}
 
 $TitleServices = $TitleServices ?? "How We Help You";
 $SubServices   = $SubServices ?? "Our team of experts is dedicated to helping you achieve your goals through precise, data-driven strategies.";

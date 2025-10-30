@@ -1,6 +1,6 @@
 <?php
 @session_start();
-if (!isset($HomeIntro)) include_once __DIR__ . '/../../text.php';
+if (!isset($HomeIntro)) include_once dirname(__DIR__, 3) . '/text.php';
 
 $headline = $HomeIntro['headline'] ?? 'Parallax Websites that Convert';
 $sub      = $HomeIntro['sub'] ?? 'Creamos experiencias web inmersivas con rendimiento, accesibilidad y SEO listos para producción.';
@@ -9,8 +9,6 @@ $cta2     = $HomeIntro['secondaryCTA'] ?? 'See Our Work';
 $images   = $HeroImages ?? [];
 $baseURL  = $BaseURL ?? '';
 ?>
-<link rel="stylesheet" href="<?= htmlspecialchars($baseURL) ?>/assets/css/hero-4.css">
-
 <section class="hero4" id="hero-4">
   <div class="hero4__slides">
     <?php foreach ($images as $i => $src): ?>

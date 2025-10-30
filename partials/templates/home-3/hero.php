@@ -1,6 +1,6 @@
 <?php
 @session_start();
-include_once __DIR__ . '/../../text.php';
+include_once dirname(__DIR__, 3) . '/text.php';
 
 /**
  * Aquila Hero — Diseño propio

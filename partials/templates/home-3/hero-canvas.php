@@ -1,6 +1,6 @@
 <?php
 @session_start();
-if (!isset($HomeIntro)) include_once __DIR__ . '/../../text.php';
+if (!isset($HomeIntro)) include_once dirname(__DIR__, 3) . '/text.php';
 
 $headline   = $HomeIntro['headline'] ?? 'Parallax Websites that Convert';
 $sub        = $HomeIntro['sub'] ?? 'Creamos experiencias inmersivas rápidas, accesibles y listas para producción.';

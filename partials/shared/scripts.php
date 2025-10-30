@@ -8,11 +8,7 @@
 <script src="assets/js/analytics.js" defer></script>
 
 <!-- HEADER DEPENDENCIES -->
-<script src="assets/js/header/header-1.js" defer></script>
-<script src="assets/js/header/header-2.js" defer></script>
-<script src="assets/js/header/header-3.js" defer></script>
-<script src="assets/js/header/header-5.js" defer></script>
-<script src="assets/js/header/header-hero.js" defer></script>
+<script src="assets/js/header/header-template.js" defer></script>
 
 <!-- HERO -->
 <script src="assets/js/hero/hero-banner-canvas.js" defer></script>

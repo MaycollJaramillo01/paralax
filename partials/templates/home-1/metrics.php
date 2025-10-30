@@ -1,6 +1,6 @@
 <?php
 @session_start();
-if (!isset($SN)) include_once __DIR__ . '/text.php';
+if (!isset($SN)) include_once dirname(__DIR__, 3) . '/text.php';
 
 $Achievements = [
   ["icon" => "fa-helmet-safety", "value" => "35%", "label" => "Reduction in subcontractor costs"],
@@ -41,8 +41,6 @@ $Achievements = [
     </div>
   </div>
 </section>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 /* =========================================================

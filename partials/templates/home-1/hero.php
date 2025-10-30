@@ -1,6 +1,6 @@
 <?php
 @session_start();
-include_once __DIR__ . '/../../text.php';
+include_once dirname(__DIR__, 3) . '/text.php';
 /**
  * Hero Design 1 — "The Conversational Opener"
  * Data source: text.php
@@ -35,11 +35,6 @@ $schemaData = [
 ];
 ?>
 
-<head>
-    <link rel="stylesheet" href="assets/css/root.css">
-    <link rel="stylesheet" href="assets/css/hero-1.css">
-
-</head>
 <section
     class="hero-conversational"
     id="hero-conversational"

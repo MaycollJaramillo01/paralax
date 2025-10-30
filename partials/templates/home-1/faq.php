@@ -1,6 +1,11 @@
 <?php
 @session_start();
-if (!isset($FAQs)) include __DIR__ . '/text.php';
+if (!isset($FAQs)) {
+    $dataSource = dirname(__DIR__, 3) . '/text.php';
+    if (file_exists($dataSource)) {
+        include_once $dataSource;
+    }
+}
 ?>
 <section id="faq-v1" class="faq-v1-section">
   <div class="faq-v1-container">
