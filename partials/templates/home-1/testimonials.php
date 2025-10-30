@@ -1,6 +1,6 @@
 <?php
 @session_start();
-if (!isset($SN)) include_once __DIR__ . '/text.php';
+if (!isset($SN)) include_once dirname(__DIR__, 3) . '/text.php';
 
 /* ===========================
    TESTIMONIALS DATA FALLBACK

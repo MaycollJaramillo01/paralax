@@ -1,6 +1,6 @@
 <?php
 @session_start();
-include_once __DIR__ . '/../../text.php';
+include_once dirname(__DIR__, 3) . '/text.php';
 /**
  * Hero Design 2 — "The Immersive Split Screen"
  * Data source: text.php
@@ -35,10 +35,6 @@ $schemaData = [
   ],
 ];
 ?>
-<head>
-    <link rel="stylesheet" href="assets/css/root.css">
-    <link rel="stylesheet" href="assets/css/hero-2.css">
-</head>
 <section
   class="hero-immersive"
   id="hero-immersive"

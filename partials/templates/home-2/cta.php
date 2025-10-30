@@ -123,23 +123,37 @@
  justify-content: center;
  gap: .6rem;
  padding: .7rem 1.1rem;
- border-radius: 999px;
+ border-radius: var(--radius-pill);
  font-weight: 600;
  text-decoration: none;
  transition: var(--transition-fast);
  box-shadow: var(--shadow-soft);
  border: none;
  cursor: pointer;
+ color: var(--color-accent-contrast);
 }
 .btn-primary {
- /* MODIFICACIÓN: Usar --color-accent para el fondo y --color-dark para el texto */
  background: var(--color-accent);
- color: var(--color-dark); 
+ color: var(--color-accent-contrast);
 }
-.btn-primary:hover { 
- /* Usar sombra con acento y elevación */
- transform: translateY(-3px); 
- box-shadow: var(--shadow-soft), 0 10px 30px var(--color-dark-alpha-20); 
+.btn-primary:hover,
+.btn-primary:focus-visible {
+ transform: translateY(-3px);
+ box-shadow: var(--shadow-soft), 0 10px 30px rgba(var(--color-dark-rgb), 0.2);
+ background: var(--color-accent-dark);
+ color: var(--color-accent-contrast);
+}
+
+.btn-outline {
+ border: 2px solid var(--color-accent);
+ background: transparent;
+ color: var(--color-accent-dark);
+}
+.btn-outline:hover,
+.btn-outline:focus-visible {
+ background: var(--color-accent);
+ color: var(--color-accent-contrast);
+ box-shadow: var(--shadow-soft), 0 10px 30px rgba(var(--color-dark-rgb), 0.18);
 }
 
 /* CTA container spacing */

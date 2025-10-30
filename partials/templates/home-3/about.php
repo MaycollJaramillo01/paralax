@@ -7,18 +7,9 @@
 
 @session_start();
 // Asegurar que el archivo de datos sea incluido si no está cargado.
-// Se asume que este archivo está ubicado en la raíz o en una estructura que permite '../text.php'
-// Ajusto la ruta a una versión más segura para incluir desde cualquier subdirectorio si text.php está en la raíz.
-if (!isset($AboutUs)) {
-    // Intentar incluir desde la raíz o un nivel superior, dependiendo de la estructura final del proyecto.
-    // Usaremos la convención sugerida en el código de entrada:
-    if (file_exists(__DIR__ . '/../../text.php')) {
-        include_once __DIR__ . '/../../text.php';
-    } else {
-        // Fallback si la estructura de directorios no es la esperada.
-        // Asumiendo que 'text.php' está en el mismo nivel si el script se ejecuta desde la raíz/aboutv3.php
-        include_once 'text.php'; 
-    }
+$dataSource = dirname(__DIR__, 3) . '/text.php';
+if (!isset($AboutUs) && file_exists($dataSource)) {
+    include_once $dataSource;
 }
 
 // Extraer variables necesarias del archivo de datos con fallbacks seguros
@@ -206,22 +197,35 @@ $chips = array_filter([
 /* Estilos de botón generales (asumen que ya están definidos globalmente o se pueden añadir aquí) */
 .btn {
     padding: 1.1rem 2.4rem;
-    border-radius: 50px;
+    border-radius: var(--radius-pill);
     font-weight: 600;
     font-size: 1rem;
     text-decoration: none;
     transition: all 0.3s ease;
     white-space: nowrap;
+    color: var(--color-accent-contrast);
 }
 .btn-primary {
-    background: var(--color-brand-blue);
-    color: var(--color-dark);
-    box-shadow: 0 10px 30px var(--color-brand-blue-alpha-30);
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
+    box-shadow: 0 10px 30px rgba(var(--color-accent-rgb), 0.3);
 }
-.btn-primary:hover {
-    background: var(--color-brand-blue-bright);
-    color: var(--color-dark);
+.btn-primary:hover,
+.btn-primary:focus-visible {
+    background: var(--color-accent-dark);
+    color: var(--color-accent-contrast);
     transform: translateY(-3px);
+}
+.btn-outline {
+    border: 2px solid var(--color-accent);
+    color: var(--color-accent-dark);
+    background: transparent;
+}
+.btn-outline:hover,
+.btn-outline:focus-visible {
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
+    box-shadow: 0 10px 28px rgba(var(--color-accent-rgb), 0.28);
 }
 
 

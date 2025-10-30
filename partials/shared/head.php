@@ -53,12 +53,10 @@ $lcp2 = $HeroImages[2] ?? 'assets/images/hero/hero3.jpg';
   <link rel="stylesheet" href="assets/css/root.css" />           <!-- VARIABLES Y ROOT -->
   <link rel="stylesheet" href="assets/css/main.css" />           <!-- BASE / UTILS -->
   <link rel="stylesheet" href="assets/css/hero-banner-canvas.css"> <!-- HERO PARALLAX -->
+  <link rel="stylesheet" href="assets/css/hero-1.css">
+  <link rel="stylesheet" href="assets/css/hero-2.css">
+  <link rel="stylesheet" href="assets/css/hero-3.css">
   <link rel="stylesheet" href="assets/css/hero-4.css">
-  <link rel="stylesheet" href="assets/css/header-hero.css">
-  <link rel="stylesheet" href="assets/css/header-5.css">
-  <link rel="stylesheet" href="assets/css/header-4.css">
-  <link rel="stylesheet" href="assets/css/header-3.css">
-  <link rel="stylesheet" href="assets/css/header-2.css">
-  <link rel="stylesheet" href="assets/css/header-1.css">
+  <link rel="stylesheet" href="assets/css/header-template.css">
 
 </head>

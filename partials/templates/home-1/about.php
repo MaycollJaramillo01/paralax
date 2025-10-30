@@ -1,6 +1,6 @@
 <?php
 @session_start();
-if (!isset($AboutUs)) include_once __DIR__ . '/../../text.php';
+if (!isset($AboutUs)) include_once dirname(__DIR__, 3) . '/text.php';
 
 $title   = $AboutUs['title']  ?? 'Who We Are';
 $short   = $AboutUs['short']  ?? 'Short description here.';
@@ -141,22 +141,36 @@ $baseURL = $BaseURL ?? '';
 
 .btn {
   padding: 1rem 2rem;
-  border-radius: 50px;
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
   transition: all 0.3s ease;
+  color: var(--color-accent-contrast);
 }
 
 .btn-primary {
-  background: var(--color-success);
-  color: var(--color-dark);
-  box-shadow: 0 8px 20px var(--color-success-alpha-30);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  box-shadow: 0 8px 22px rgba(var(--color-accent-rgb), 0.32);
 }
-.btn-primary:hover {
-  background: var(--color-success-dark);
-  color: var(--color-dark);
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--color-accent-dark);
+  color: var(--color-accent-contrast);
   transform: translateY(-3px);
+}
+
+.btn-outline {
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent-dark);
+  background: transparent;
+}
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  box-shadow: 0 8px 20px rgba(var(--color-accent-rgb), 0.26);
 }
 
 
