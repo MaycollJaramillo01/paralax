@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f3c88"/>
+      <stop offset="100%" stop-color="#f2b705"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="10" width="70" height="40" rx="12" fill="url(#g)"/>
+  <path d="M34 20c6 0 11 5 11 11s-5 11-11 11-11-5-11-11 5-11 11-11zm0 6a5 5 0 100 10 5 5 0 000-10z" fill="#fff"/>
+  <text x="90" y="36" font-family="'Exo', 'Inter', sans-serif" font-size="18" font-weight="700" fill="#1f2937">Exclusive</text>
+  <text x="90" y="52" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#1f3c88">Hardscapes Inc</text>
+</svg>

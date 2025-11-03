@@ -1,86 +1,32 @@
 <?php
-@session_start();
 include_once __DIR__ . '/text.php';
 
-$templateMap = [
-    'home-1' => [
-        'label' => 'Home 1 — Classic agency',
-        'sections' => ['hero', 'faq', 'about', 'projects', 'testimonials', 'metrics', 'cta', 'partners', 'contact'],
-    ],
-    'home-2' => [
-        'label' => 'Home 2 — Performance suite',
-        'sections' => ['hero', 'faq', 'about', 'services', 'projects', 'testimonials', 'metrics', 'cta', 'partners', 'contact'],
-    ],
-    'home-3' => [
-        'label' => 'Home 3 — Immersive parallax',
-        'sections' => ['hero', 'hero-alt', 'hero-canvas', 'faq', 'about', 'services', 'services-alt', 'projects', 'testimonials', 'metrics', 'cta', 'cta-alt', 'partners', 'contact'],
-    ],
-    'home-4' => [
-        'label' => 'Home 4 — Growth architecture',
-        'sections' => ['hero', 'solutions', 'process', 'case-studies', 'cta'],
-    ],
-    'home-5' => [
-        'label' => 'Home 5 — Campaign accelerator',
-        'sections' => ['hero-alt', 'trust', 'services', 'insights', 'contact'],
-    ],
-];
-
-$requestedTemplate = $_GET['template'] ?? 'home-1';
-if (!array_key_exists($requestedTemplate, $templateMap)) {
-    $requestedTemplate = 'home-1';
+$design = isset($_GET['home']) ? preg_replace('/[^1-5]/', '', $_GET['home']) : '1';
+if ($design === '') {
+    $design = '1';
 }
-
-$CurrentTemplate = $requestedTemplate;
-$sectionsToInclude = $templateMap[$requestedTemplate]['sections'];
+$designPath = __DIR__ . '/pages/home' . $design . '/index.php';
+if (!file_exists($designPath)) {
+    $design = '1';
+    $designPath = __DIR__ . '/pages/home1/index.php';
+}
 ?>
-<?php include 'partials/shared/head.php'; ?>
-
-<body class="bg-light text-neutral font-body overflow-x-hidden" data-template="<?= htmlspecialchars($CurrentTemplate) ?>">
-
-  <?php include 'partials/shared/header-template.php'; ?>
-
-  <?php
-  foreach ($sectionsToInclude as $section) {
-      $path = __DIR__ . '/partials/templates/' . $CurrentTemplate . '/' . $section . '.php';
-      if (file_exists($path)) {
-          include $path;
-      }
-  }
-  ?>
-
-  <footer class="bg-primary text-light text-center py-4 font-body text-sm">
-    <p>&copy; <?= date('Y'); ?> Demo Parallax Template. Designed by <strong>Maycoll Jaramillo</strong>.</p>
-  </footer>
-
-  <?php include 'partials/shared/scripts.php'; ?>
-  <script>
-  /* Parallax + reveal simple (no dependencias) */
-  (function(){
-    const hero = document.querySelector('.hero-card');
-    const bg = hero?.querySelector('.hero-card-bg');
-
-    function onScroll(){
-      if(!bg || !hero) return;
-      const rect = hero.getBoundingClientRect();
-      const winH = window.innerHeight;
-      const pct = Math.max(-1, Math.min(1, (rect.top - (winH/2)) / (winH/2)));
-      const translateY = pct * 20;
-      bg.style.transform = `translateY(${translateY}px) scale(1.12)`;
-    }
-    window.addEventListener('scroll', onScroll, {passive:true});
-    onScroll();
-
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('visible');
-          e.target.classList.add('reveal');
-        }
-      });
-    }, {threshold: 0.18});
-    document.querySelectorAll('[data-animate]').forEach(el => obs.observe(el));
-  })();
-  </script>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo htmlspecialchars($MetaTitle); ?></title>
+    <meta name="description" content="<?php echo htmlspecialchars($MetaDescription); ?>">
+    <meta name="keywords" content="<?php echo htmlspecialchars($MetaKeywords); ?>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo $BaseURL; ?>assets/css/global.css">
+</head>
+<body class="site" data-design="home<?php echo htmlspecialchars($design); ?>">
+    <?php include $designPath; ?>
+    <script src="<?php echo $BaseURL; ?>assets/js/animations.js" defer></script>
+    <script src="<?php echo $BaseURL; ?>assets/js/home-slider.js" defer></script>
 </body>
 </html>
