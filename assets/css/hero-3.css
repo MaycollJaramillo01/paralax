@@ -3,8 +3,8 @@
   position: relative;
   overflow: hidden;
   /* Color de texto claro, manteniendo el fallback */
-  color: var(--color-light, #f5f5dc);
-  border-radius: var(--radius-xl, 20px);
+  color: var(--color-ivory);
+  border-radius: var(--radius-xl);
   padding: clamp(3rem, 6vw, 6rem) clamp(1.5rem, 5vw, 5rem);
   /* Fondo: Gradiente de tonos oscuros/primarios (antes: #0f2533 y #0b1d28) */
   background: linear-gradient(130deg, var(--color-secondary) 0%, var(--color-primary) 55%, var(--color-secondary) 100%);
@@ -16,10 +16,10 @@
   inset: -20% -10% -10% -10%;
   /* Los gradientes radiales usan el RGB de los acentos Marrón Sello y Oro Viejo Mate */
   background:
-    radial-gradient(60rem 40rem at 15% 10%, rgba(139, 69, 19, .12), transparent 60%),
-    radial-gradient(50rem 40rem at 85% 60%, rgba(184, 134, 11, .12), transparent 60%),
+    radial-gradient(60rem 40rem at 15% 10%, var(--color-warm-base-alpha-12), transparent 60%),
+    radial-gradient(50rem 40rem at 85% 60%, var(--color-warm-glow-alpha-12), transparent 60%),
     /* Patrón de líneas usando el RGB de --color-light */
-    repeating-linear-gradient(135deg, rgba(245, 245, 220, .03) 0 8px, transparent 8px 32px);
+    repeating-linear-gradient(135deg, var(--color-ivory-alpha-03) 0 8px, transparent 8px 32px);
   filter: saturate(1.1);
   z-index: 0;
   pointer-events: none;
@@ -52,7 +52,7 @@
   text-transform: uppercase;
   letter-spacing: 0.18em;
   /* Acento suave (Oro Viejo Mate) */
-  color: var(--color-soft);
+  color: var(--color-warm-glow);
   font-size: .9rem;
 }
 
@@ -63,7 +63,7 @@
   font-size: clamp(2.2rem, 4.8vw, 4rem);
   line-height: 1.08;
   /* Color de título claro (antes: #fff) */
-  color: var(--color-light);
+  color: var(--color-ivory);
   word-break: break-word;
 }
 
@@ -72,7 +72,7 @@
   font-size: 1.1rem;
   line-height: 1.7;
   /* Color de texto usando el RGB de --color-light con transparencia */
-  color: rgba(245, 245, 220, .9);
+  color: var(--color-ivory-alpha-90);
 }
 
 .aquila__bullets {
@@ -91,9 +91,9 @@
   position: absolute; left: 0; top: .6em;
   width: .55rem; height: .55rem; border-radius: 999px;
   /* Acento principal (Marrón Sello) */
-  background: var(--color-accent);
+  background: var(--color-warm-base);
   /* Sombra de viñeta usando el RGB del acento */
-  box-shadow: 0 0 0 6px rgba(139, 69, 19, .15);
+  box-shadow: 0 0 0 6px var(--color-warm-base-alpha-15);
 }
 
 /* CTA */
@@ -105,34 +105,34 @@
 }
 .aquila__btn--primary {
   /* Fondo Acento (Marrón Sello), Texto Oscuro (Negro Azabache) */
-  background: var(--color-accent);
+  background: var(--color-warm-base);
   color: var(--color-dark);
-  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  box-shadow: 0 8px 24px var(--color-dark-alpha-25);
 }
-.aquila__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.35); }
+.aquila__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px var(--color-dark-alpha-35); }
 .aquila__btn--ghost {
   /* Color de texto claro (antes: #eaf5f2) */
-  color: var(--color-light);
+  color: var(--color-ivory);
   /* Borde y fondo usando el RGB de --color-light */
-  border: 1px solid rgba(245, 245, 220, .35);
-  background: rgba(245, 245, 220, .06);
+  border: 1px solid var(--color-ivory-alpha-35);
+  background: var(--color-ivory-alpha-06);
 }
 .aquila__btn--ghost:hover {
   /* Fondo en hover usando el RGB de --color-light */
-  background: rgba(245, 245, 220, .14);
+  background: var(--color-ivory-alpha-14);
 }
 
 /* Trust strip */
 .aquila__trust {
   display: flex; flex-wrap: wrap; gap: .9rem 1.2rem; margin: .6rem 0 0; padding: 0; list-style: none;
   /* Color de texto usando el RGB de --color-light */
-  color: rgba(245, 245, 220, .85);
+  color: var(--color-ivory-alpha-85);
   font-size: .95rem;
 }
 
 /* Visual */
 .aquila__visual { position: relative; display: grid; place-items: center; }
-.aquila__media { width: min(520px, 100%); filter: drop-shadow(0 22px 36px rgba(0,0,0,.28)); }
+.aquila__media { width: min(520px, 100%); filter: drop-shadow(var(--drop-shadow-hero)); }
 .aquila__media img { width: 100%; height: auto; display: block; border-radius: 16px; transition: transform 1.2s cubic-bezier(.16,.84,.38,1); }
 .aquila__visual:hover .aquila__media img { transform: scale(1.03); }
 
@@ -140,17 +140,17 @@
 .aquila__orb { position: absolute; width: clamp(240px, 28vw, 360px); aspect-ratio: 1; display: grid; place-items: center; pointer-events: none; }
 .aquila__orb-ring { position: absolute; inset: 0; border-radius: 50%;
   /* Gradiente del anillo exterior usando el RGB del acento principal */
-  background: radial-gradient(circle at 35% 35%, rgba(139, 69, 19, .75), transparent 70%); opacity: .8; }
+  background: radial-gradient(circle at 35% 35%, var(--color-warm-base-alpha-75), transparent 70%); opacity: .8; }
 .aquila__orb-ring--outer { animation: aquilaPulse 7s ease-in-out infinite; }
 .aquila__orb-ring--inner { width: 62%; height: 62%;
   /* Gradiente del anillo interior usando el RGB del acento suave */
-  background: radial-gradient(circle at 60% 40%, rgba(184, 134, 11, .85), transparent 70%);
+  background: radial-gradient(circle at 60% 40%, var(--color-warm-glow-alpha-85), transparent 70%);
   animation: aquilaPulse 5s ease-in-out infinite reverse; }
 .aquila__orb-core { width: 32%; height: 32%; border-radius: 50%;
   /* Núcleo usando gradiente entre acento principal y suave */
-  background: linear-gradient(140deg, var(--color-accent), var(--color-soft));
+  background: linear-gradient(140deg, var(--color-warm-base), var(--color-warm-glow));
   /* Sombra del núcleo usando el RGB del acento principal */
-  box-shadow: 0 0 32px rgba(139, 69, 19, .85);
+  box-shadow: var(--shadow-glow-warm-strong);
   animation: aquilaSpin 12s linear infinite; }
 
 @keyframes aquilaPulse { 0%,100%{transform:scale(1); opacity:.9} 50%{transform:scale(1.12); opacity:.65} }

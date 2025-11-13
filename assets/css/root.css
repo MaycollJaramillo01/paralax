@@ -19,19 +19,346 @@
   --color-soft: #33E0FF;      /* Azul Celeste (efectos/íconos/hover) */
   --color-light: #F8F9FA;     /* Blanco Suave (fondos claros/texto oscuro) */
 
+  /* Paletas extendidas para héroes cálidos y motivos marinos */
+  --color-midnight: #0F172A;          /* Azul profundo para overlays oscuros */
+  --color-midnight-rgb: 15, 23, 42;
+  --color-deep-navy: #0D2538;         /* Azul petróleo utilizado en headers */
+  --color-deep-navy-rgb: 13, 37, 56;
+  --color-midnight-soft: #0B1D28;     /* Variante suave para degradados */
+  --color-midnight-soft-rgb: 11, 29, 40;
+  --color-ocean-shadow: #0A1E23;      /* Tonos ahumados azulados */
+  --color-ocean-shadow-rgb: 10, 30, 35;
+  --color-night-ink: #050E12;         /* Profundidad casi negra verdosa */
+  --color-night-ink-rgb: 5, 14, 18;
+  --color-forest-deep: #0D2A25;       /* Verde oscuro profundo */
+  --color-forest-deep-rgb: 13, 42, 37;
+  --color-night-steel: #0A0C0F;       /* Negro azul acero */
+  --color-night-steel-rgb: 10, 12, 15;
+
+  --color-warm-base: #8B4513;         /* Marrón sello para acentos cálidos */
+  --color-warm-base-rgb: 139, 69, 19;
+  --color-warm-glow: #B8860B;         /* Dorado envejecido */
+  --color-warm-glow-rgb: 184, 134, 11;
+  --color-ivory: #F5F5DC;             /* Marfil suave */
+  --color-ivory-rgb: 245, 245, 220;
+  --color-polar: #EAF5F2;             /* Blanco verdoso para contrastes suaves */
+  --color-polar-rgb: 234, 245, 242;
+
+  --color-teal-bright: #38A3A5;       /* Verde azulado brillante */
+  --color-teal-bright-rgb: 56, 163, 165;
+  --color-emerald: #57CC99;           /* Verde esmeralda intenso */
+  --color-emerald-rgb: 87, 204, 153;
+  --color-mint: #80ED99;              /* Verde menta vibrante */
+  --color-mint-rgb: 128, 237, 153;
+  --color-reef: #65F0A8;              /* Verde turquesa luminoso */
+  --color-reef-rgb: 101, 240, 168;
+  --color-lagoon: #7FF0B8;            /* Verde laguna */
+  --color-lagoon-rgb: 127, 240, 184;
+  --color-seafoam: #8ADBB6;           /* Verde espuma mar */
+  --color-seafoam-rgb: 138, 219, 182;
+
+  --color-sky-bright: #38BDF8;        /* Azul cielo vívido */
+  --color-sky-bright-rgb: 56, 189, 248;
+  --color-sky-strong: #3B82F6;        /* Azul eléctrico intenso */
+  --color-sky-strong-rgb: 59, 130, 246;
+  --color-navy-strong: #22577A;       /* Azul petróleo saturado */
+  --color-navy-strong-rgb: 34, 87, 122;
+  --color-slate-soft: #9CA3AF;        /* Gris azulado neutro */
+  --color-slate-soft-rgb: 156, 163, 175;
+  --color-cloud: #E5E7EB;             /* Gris muy claro */
+  --color-cloud-rgb: 229, 231, 235;
+  --color-silver-soft: #EBEBEB;       /* Gris plateado suave */
+  --color-silver-soft-rgb: 235, 235, 235;
+  --color-slate-ink: #0F1B24;         /* Azul petróleo profundo */
+  --color-slate-ink-rgb: 15, 27, 36;
+  --color-slate-800: #1E293B;         /* Azul grisáceo intenso */
+  --color-slate-800-rgb: 30, 41, 59;
+  --color-slate-700: #334155;         /* Azul pizarra medio */
+  --color-slate-700-rgb: 51, 65, 85;
+  --color-slate-600: #475569;         /* Azul humo medio */
+  --color-slate-600-rgb: 71, 85, 105;
+  --color-slate-500: #64748B;         /* Azul gris tenue */
+  --color-slate-500-rgb: 100, 116, 139;
+  --color-graphite: #2E2E2E;          /* Gris grafito */
+  --color-graphite-rgb: 46, 46, 46;
+  --color-neutral-deep: #4D4D4D;      /* Gris medio oscuro */
+  --color-neutral-deep-rgb: 77, 77, 77;
+  --color-soft-gray: #DDDDDD;         /* Gris suave */
+  --color-soft-gray-rgb: 221, 221, 221;
+
+  --color-success: #0FB36D;           /* Verde éxito vibrante */
+  --color-success-rgb: 15, 179, 109;
+  --color-success-dark: #0A8A55;      /* Verde éxito profundo */
+  --color-success-dark-rgb: 10, 138, 85;
+  --color-success-bright: #00E382;    /* Verde brillante */
+  --color-success-bright-rgb: 0, 227, 130;
+  --color-success-contrast: #033D28;  /* Fondo accesible para variantes hover */
+  --color-success-contrast-rgb: 3, 61, 40;
+
+  --color-brand-blue: #007BFF;        /* Azul corporativo */
+  --color-brand-blue-rgb: 0, 123, 255;
+  --color-brand-blue-dark: #0056B3;   /* Azul corporativo oscuro */
+  --color-brand-blue-dark-rgb: 0, 86, 179;
+
+  --color-amber-bright: #FFD700;      /* Dorado brillante */
+  --color-amber-bright-rgb: 255, 215, 0;
+
+  --color-pastel-mint: #BFE8E1;       /* Pastel menta */
+  --color-pastel-mint-rgb: 191, 232, 225;
+  --color-pastel-apricot: #F0B186;    /* Pastel durazno */
+  --color-pastel-apricot-rgb: 240, 177, 134;
+  --color-pastel-sky: #A9DDE3;        /* Pastel celeste */
+  --color-pastel-sky-rgb: 169, 221, 227;
+  --color-pastel-sand: #E9D3A5;       /* Pastel arena */
+  --color-pastel-sand-rgb: 233, 211, 165;
+  --color-pastel-lavender: #D7C6FF;   /* Pastel lavanda */
+  --color-pastel-lavender-rgb: 215, 198, 255;
+  --color-pastel-coral: #FFD1C6;      /* Pastel coral */
+  --color-pastel-coral-rgb: 255, 209, 198;
+
+  --color-ivory-soft: #FFFef6;        /* Marfil muy suave */
+  --color-ivory-soft-rgb: 255, 254, 246;
+  --color-eggshell: #F9F8EE;          /* Blanco huevo */
+  --color-eggshell-rgb: 249, 248, 238;
+  --color-mist-light: #F5F6F7;        /* Gris bruma claro */
+  --color-mist-light-rgb: 245, 246, 247;
+  --color-frost: #F6F7F8;             /* Gris helado */
+  --color-frost-rgb: 246, 247, 248;
+  --color-snow: #F8FAFC;              /* Nieve azulada */
+  --color-snow-rgb: 248, 250, 252;
+  --color-ice: #E5ECF3;               /* Azul hielo */
+  --color-ice-rgb: 229, 236, 243;
+  --color-slate-haze: #EEF2F6;        /* Neblina azulada */
+  --color-slate-haze-rgb: 238, 242, 246;
+  --color-soft-white: #F9F9F9;        /* Blanco suave */
+  --color-soft-white-rgb: 249, 249, 249;
+  --color-steel-blue: #B7C4D1;        /* Azul acero claro */
+  --color-steel-blue-rgb: 183, 196, 209;
+  --color-porcelain: #F2F4F5;         /* Gris porcelana */
+  --color-porcelain-rgb: 242, 244, 245;
+  --color-night-indigo: #0B1320;      /* Azul índigo profundo */
+  --color-night-indigo-rgb: 11, 19, 32;
+  --color-brand-blue-bright: #0D6EFD; /* Azul vibrante */
+  --color-brand-blue-bright-rgb: 13, 110, 253;
+  --color-ember: #FD7E14;             /* Naranja intenso */
+  --color-ember-rgb: 253, 126, 20;
+
+
+  /* Representaciones RGB para transparencias calculadas */
+  --color-primary-rgb: 26, 26, 26;       /* Base oscura */
+  --color-secondary-rgb: 44, 44, 44;     /* Contenedor oscuro */
+  --color-dark-rgb: 0, 0, 0;             /* Negro puro */
+  --color-neutral-rgb: 224, 224, 224;    /* Gris claro */
+  --color-light-rgb: 248, 249, 250;      /* Blanco suave */
+  --color-accent-rgb: 0, 188, 212;       /* Cian vibrante */
+  --color-soft-rgb: 51, 224, 255;        /* Azul celeste */
+
+  /* Variaciones de acento inspiradas en la paleta oficial */
+  --color-accent-2: #26C6DA;             /* Acento alterno (hover/gradientes) */
+  --color-accent-dark: #00838F;          /* Acento profundo para estados activos */
+  --color-accent-light: #5CEBFF;         /* Acento iluminado para fondos suaves */
+  --color-accent-contrast: #002933;      /* Texto/íconos sobre fondos de acento */
+  --color-accent-muted: rgba(var(--color-accent-rgb), 0.18); /* Resaltados sutiles */
+
   /* === Typography === */
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Open Sans', sans-serif;
 
   /* === Layout === */
-  --radius-lg: 1rem;
-  --radius-md: 0.5rem;
-  --radius-sm: 0.25rem;
+  --radius-xl: 1.5rem;  /* Secciones hero y tarjetas destacadas */
+  --radius-lg: 1rem;    /* Contenedores principales */
+  --radius-md: 0.5rem;  /* Botones y tarjetas medianas */
+  --radius-sm: 0.25rem; /* Chips y elementos pequeños */
+  --radius-xs: 0.125rem;/* Badges o detalles lineales */
+  --radius-pill: 999px; /* Pastillas y botones totalmente redondeados */
 
   /* === Shadows === */
   /* Sombras suaves y modernas con matiz azul */
-  --shadow-soft: 0 4px 15px rgba(0, 188, 212, 0.25);
-  --shadow-hard: 0 8px 30px rgba(0, 0, 0, 0.6);
+  --shadow-soft: 0 4px 15px rgba(var(--color-accent-rgb), 0.25);
+  --shadow-hard: 0 8px 30px rgba(var(--color-dark-rgb), 0.6);
+  --shadow-elevated: 0 12px 36px rgba(var(--color-dark-rgb), 0.45);   /* Tarjetas suspendidas */
+  --shadow-overlay: 0 18px 48px rgba(var(--color-dark-rgb), 0.5);     /* Elementos flotantes */
+  --shadow-glow-accent: 0 0 0 3px rgba(var(--color-accent-rgb), 0.35);/* Focus states */
+  --shadow-drawer: -6px 0 20px rgba(var(--color-dark-rgb), 0.25);     /* Paneles laterales */
+  --shadow-drawer-strong: -6px 0 20px rgba(var(--color-dark-rgb), 0.4);
+  --shadow-drawer-wide: -8px 0 24px rgba(var(--color-dark-rgb), 0.25);
+  --shadow-drawer-xl: -20px 0 40px rgba(var(--color-dark-rgb), 0.25);
+  --shadow-floating: 0 6px 30px rgba(var(--color-dark-rgb), 0.25);
+  --shadow-floating-pressed: 0 4px 20px rgba(var(--color-dark-rgb), 0.3);
+  --shadow-glow-mint-strong: 0 0 30px rgba(var(--color-emerald-rgb), 0.85);
+  --shadow-glow-warm: 0 0 0 4px rgba(var(--color-warm-glow-rgb), 0.18);
+  --shadow-glow-warm-strong: 0 0 32px rgba(var(--color-warm-base-rgb), 0.85);
+  --shadow-text-strong: 0 10px 30px rgba(var(--color-dark-rgb), 0.35);
+  --drop-shadow-hero: 0 22px 36px rgba(var(--color-dark-rgb), 0.28);
+  --drop-shadow-hero-strong: 0 24px 40px rgba(var(--color-dark-rgb), 0.28);
+
+  /* === Transparencias y overays especializados === */
+  --overlay-soft: rgba(var(--color-dark-rgb), 0.55);
+  --overlay-medium: rgba(var(--color-dark-rgb), 0.6);
+  --overlay-strong: rgba(var(--color-dark-rgb), 0.7);
+  --overlay-panel: rgba(var(--color-dark-rgb), 0.25);
+  --overlay-panel-strong: rgba(var(--color-dark-rgb), 0.4);
+  --overlay-panel-soft: rgba(var(--color-dark-rgb), 0.3);
+  --glass-light-07: rgba(var(--color-light-rgb), 0.07);
+  --glass-light-30: rgba(var(--color-light-rgb), 0.3);
+  --glass-highlight: rgba(var(--color-light-rgb), 0.3);
+  --glass-border-soft: rgba(var(--color-light-rgb), 0.1);
+  --glass-border-strong: rgba(var(--color-light-rgb), 0.2);
+  --glass-border-bright: rgba(var(--color-light-rgb), 0.22);
+
+  --color-transparent: rgba(0, 0, 0, 0);
+
+  /* === Transparencias reutilizables === */
+  --color-dark-alpha-03: rgba(var(--color-dark-rgb), 0.03);
+  --color-dark-alpha-04: rgba(var(--color-dark-rgb), 0.04);
+  --color-dark-alpha-05: rgba(var(--color-dark-rgb), 0.05);
+  --color-dark-alpha-08: rgba(var(--color-dark-rgb), 0.08);
+  --color-dark-alpha-12: rgba(var(--color-dark-rgb), 0.12);
+  --color-dark-alpha-15: rgba(var(--color-dark-rgb), 0.15);
+  --color-dark-alpha-18: rgba(var(--color-dark-rgb), 0.18);
+  --color-dark-alpha-20: rgba(var(--color-dark-rgb), 0.2);
+  --color-dark-alpha-10: rgba(var(--color-dark-rgb), 0.1);
+  --color-dark-alpha-06: rgba(var(--color-dark-rgb), 0.06);
+  --color-dark-alpha-25: rgba(var(--color-dark-rgb), 0.25);
+  --color-dark-alpha-28: rgba(var(--color-dark-rgb), 0.28);
+  --color-dark-alpha-30: rgba(var(--color-dark-rgb), 0.3);
+  --color-dark-alpha-35: rgba(var(--color-dark-rgb), 0.35);
+  --color-dark-alpha-40: rgba(var(--color-dark-rgb), 0.4);
+  --color-dark-alpha-45: rgba(var(--color-dark-rgb), 0.45);
+  --color-dark-alpha-50: rgba(var(--color-dark-rgb), 0.5);
+  --color-dark-alpha-55: rgba(var(--color-dark-rgb), 0.55);
+  --color-dark-alpha-60: rgba(var(--color-dark-rgb), 0.6);
+  --color-dark-alpha-70: rgba(var(--color-dark-rgb), 0.7);
+  --color-dark-alpha-75: rgba(var(--color-dark-rgb), 0.75);
+  --color-dark-alpha-78: rgba(var(--color-dark-rgb), 0.78);
+  --color-dark-alpha-80: rgba(var(--color-dark-rgb), 0.8);
+  --color-dark-alpha-90: rgba(var(--color-dark-rgb), 0.9);
+  --color-light-alpha-05: rgba(var(--color-light-rgb), 0.05);
+  --color-light-alpha-06: rgba(var(--color-light-rgb), 0.06);
+  --color-light-alpha-08: rgba(var(--color-light-rgb), 0.08);
+  --color-light-alpha-10: rgba(var(--color-light-rgb), 0.1);
+  --color-light-alpha-15: rgba(var(--color-light-rgb), 0.15);
+  --color-light-alpha-16: rgba(var(--color-light-rgb), 0.16);
+  --color-light-alpha-20: rgba(var(--color-light-rgb), 0.2);
+  --color-light-alpha-22: rgba(var(--color-light-rgb), 0.22);
+  --color-light-alpha-25: rgba(var(--color-light-rgb), 0.25);
+  --color-light-alpha-30: rgba(var(--color-light-rgb), 0.3);
+  --color-light-alpha-35: rgba(var(--color-light-rgb), 0.35);
+  --color-light-alpha-40: rgba(var(--color-light-rgb), 0.4);
+  --color-light-alpha-70: rgba(var(--color-light-rgb), 0.7);
+  --color-light-alpha-75: rgba(var(--color-light-rgb), 0.75);
+  --color-light-alpha-80: rgba(var(--color-light-rgb), 0.8);
+  --color-light-alpha-82: rgba(var(--color-light-rgb), 0.82);
+  --color-light-alpha-85: rgba(var(--color-light-rgb), 0.85);
+  --color-light-alpha-90: rgba(var(--color-light-rgb), 0.9);
+  --color-light-alpha-92: rgba(var(--color-light-rgb), 0.92);
+  --color-light-alpha-95: rgba(var(--color-light-rgb), 0.95);
+  --color-accent-alpha-08: rgba(var(--color-accent-rgb), 0.08);
+  --color-accent-alpha-06: rgba(var(--color-accent-rgb), 0.06);
+  --color-accent-alpha-15: rgba(var(--color-accent-rgb), 0.15);
+  --color-accent-alpha-16: rgba(var(--color-accent-rgb), 0.16);
+  --color-accent-alpha-22: rgba(var(--color-accent-rgb), 0.22);
+  --color-accent-alpha-35: rgba(var(--color-accent-rgb), 0.35);
+  --color-accent-alpha-40: rgba(var(--color-accent-rgb), 0.4);
+  --color-accent-alpha-60: rgba(var(--color-accent-rgb), 0.6);
+  --color-accent-alpha-85: rgba(var(--color-accent-rgb), 0.85);
+  --color-accent-alpha-35: rgba(var(--color-accent-rgb), 0.35);
+  --color-accent-alpha-92: rgba(var(--color-accent-rgb), 0.92);
+  --color-soft-alpha-18: rgba(var(--color-soft-rgb), 0.18);
+  --color-soft-alpha-60: rgba(var(--color-soft-rgb), 0.6);
+  --color-soft-alpha-85: rgba(var(--color-soft-rgb), 0.85);
+
+  --color-midnight-alpha-90: rgba(var(--color-midnight-rgb), 0.9);
+  --color-midnight-alpha-92: rgba(var(--color-midnight-rgb), 0.92);
+  --color-deep-navy-alpha-28: rgba(var(--color-deep-navy-rgb), 0.28);
+  --color-deep-navy-alpha-50: rgba(var(--color-deep-navy-rgb), 0.5);
+  --color-deep-navy-alpha-55: rgba(var(--color-deep-navy-rgb), 0.55);
+  --color-deep-navy-alpha-85: rgba(var(--color-deep-navy-rgb), 0.85);
+  --color-deep-navy-alpha-95: rgba(var(--color-deep-navy-rgb), 0.95);
+  --color-midnight-soft-alpha-55: rgba(var(--color-midnight-soft-rgb), 0.55);
+
+  --color-ocean-shadow-alpha-55: rgba(var(--color-ocean-shadow-rgb), 0.55);
+  --color-night-ink-alpha-25: rgba(var(--color-night-ink-rgb), 0.25);
+  --color-night-ink-alpha-65: rgba(var(--color-night-ink-rgb), 0.65);
+  --color-night-steel-alpha-40: rgba(var(--color-night-steel-rgb), 0.4);
+  --color-night-steel-alpha-75: rgba(var(--color-night-steel-rgb), 0.75);
+  --color-slate-ink-alpha-35: rgba(var(--color-slate-ink-rgb), 0.35);
+  --color-slate-ink-alpha-75: rgba(var(--color-slate-ink-rgb), 0.75);
+
+  --color-deep-space: #020C15;
+  --color-deep-space-rgb: 2, 12, 21;
+  --color-deep-space-alpha-35: rgba(var(--color-deep-space-rgb), 0.35);
+  --color-night-indigo-alpha-35: rgba(var(--color-night-indigo-rgb), 0.35);
+  --color-night-indigo-alpha-75: rgba(var(--color-night-indigo-rgb), 0.75);
+
+  --color-warm-base-alpha-12: rgba(var(--color-warm-base-rgb), 0.12);
+  --color-warm-base-alpha-15: rgba(var(--color-warm-base-rgb), 0.15);
+  --color-warm-base-alpha-25: rgba(var(--color-warm-base-rgb), 0.25);
+  --color-warm-base-alpha-75: rgba(var(--color-warm-base-rgb), 0.75);
+  --color-warm-base-alpha-85: rgba(var(--color-warm-base-rgb), 0.85);
+  --color-warm-glow-alpha-12: rgba(var(--color-warm-glow-rgb), 0.12);
+  --color-warm-glow-alpha-18: rgba(var(--color-warm-glow-rgb), 0.18);
+  --color-warm-glow-alpha-25: rgba(var(--color-warm-glow-rgb), 0.25);
+  --color-warm-glow-alpha-35: rgba(var(--color-warm-glow-rgb), 0.35);
+  --color-warm-glow-alpha-45: rgba(var(--color-warm-glow-rgb), 0.45);
+  --color-warm-glow-alpha-85: rgba(var(--color-warm-glow-rgb), 0.85);
+
+  --color-ivory-alpha-03: rgba(var(--color-ivory-rgb), 0.03);
+  --color-ivory-alpha-06: rgba(var(--color-ivory-rgb), 0.06);
+  --color-ivory-alpha-08: rgba(var(--color-ivory-rgb), 0.08);
+  --color-ivory-alpha-10: rgba(var(--color-ivory-rgb), 0.1);
+  --color-ivory-alpha-14: rgba(var(--color-ivory-rgb), 0.14);
+  --color-ivory-alpha-15: rgba(var(--color-ivory-rgb), 0.15);
+  --color-ivory-alpha-16: rgba(var(--color-ivory-rgb), 0.16);
+  --color-ivory-alpha-25: rgba(var(--color-ivory-rgb), 0.25);
+  --color-ivory-alpha-35: rgba(var(--color-ivory-rgb), 0.35);
+  --color-ivory-alpha-40: rgba(var(--color-ivory-rgb), 0.4);
+  --color-ivory-alpha-50: rgba(var(--color-ivory-rgb), 0.5);
+  --color-ivory-alpha-85: rgba(var(--color-ivory-rgb), 0.85);
+  --color-ivory-alpha-90: rgba(var(--color-ivory-rgb), 0.9);
+  --color-ivory-alpha-92: rgba(var(--color-ivory-rgb), 0.92);
+  --color-ivory-alpha-95: rgba(var(--color-ivory-rgb), 0.95);
+
+  --color-polar-alpha-92: rgba(var(--color-polar-rgb), 0.92);
+  --color-silver-soft-alpha-92: rgba(var(--color-silver-soft-rgb), 0.92);
+
+  --color-teal-bright-alpha-18: rgba(var(--color-teal-bright-rgb), 0.18);
+  --color-teal-bright-alpha-90: rgba(var(--color-teal-bright-rgb), 0.9);
+  --color-emerald-alpha-00: rgba(var(--color-emerald-rgb), 0);
+  --color-emerald-alpha-40: rgba(var(--color-emerald-rgb), 0.4);
+  --color-emerald-alpha-80: rgba(var(--color-emerald-rgb), 0.8);
+  --color-emerald-alpha-85: rgba(var(--color-emerald-rgb), 0.85);
+  --color-mint-alpha-18: rgba(var(--color-mint-rgb), 0.18);
+  --color-mint-alpha-40: rgba(var(--color-mint-rgb), 0.4);
+  --color-reef-alpha-40: rgba(var(--color-reef-rgb), 0.4);
+  --color-lagoon-alpha-18: rgba(var(--color-lagoon-rgb), 0.18);
+  --color-lagoon-alpha-35: rgba(var(--color-lagoon-rgb), 0.35);
+  --color-seafoam-alpha-18: rgba(var(--color-seafoam-rgb), 0.18);
+
+  --color-sky-bright-alpha-50: rgba(var(--color-sky-bright-rgb), 0.5);
+  --color-navy-strong-alpha-90: rgba(var(--color-navy-strong-rgb), 0.9);
+
+  --color-slate-soft-alpha-70: rgba(var(--color-slate-soft-rgb), 0.7);
+  --color-cloud-alpha-80: rgba(var(--color-cloud-rgb), 0.8);
+  --color-success-alpha-30: rgba(var(--color-success-rgb), 0.3);
+  --color-success-alpha-40: rgba(var(--color-success-rgb), 0.4);
+  --color-success-dark-alpha-30: rgba(var(--color-success-dark-rgb), 0.3);
+  --color-brand-blue-alpha-30: rgba(var(--color-brand-blue-rgb), 0.3);
+  --color-brand-blue-alpha-50: rgba(var(--color-brand-blue-rgb), 0.5);
+  --color-brand-blue-bright-alpha-30: rgba(var(--color-brand-blue-bright-rgb), 0.3);
+  --color-brand-blue-bright-alpha-50: rgba(var(--color-brand-blue-bright-rgb), 0.5);
+  --color-amber-bright-alpha-45: rgba(var(--color-amber-bright-rgb), 0.45);
+  --color-ember-alpha-35: rgba(var(--color-ember-rgb), 0.35);
+
+  /* === Preajustes de componentes === */
+  --h5-bg: rgba(var(--color-primary-rgb), 0.88);                /* Fondo semitransparente */
+  --h5-pill: rgba(var(--color-secondary-rgb), 0.95);            /* Fondo de la pastilla */
+  --h5-pill-pressed: rgba(var(--color-dark-rgb), 0.75);         /* Estado activo de navegación */
+  --h5-text: var(--color-light);                                /* Texto en modo oscuro */
+  --h5-soft: var(--color-accent);                               /* Acento para enfoque */
+  --h5-sep: var(--color-light-alpha-25);                        /* Separadores sutiles */
+  --h5-shadow: var(--shadow-overlay);                           /* Sombras principales */
+  --h5-blur: saturate(1.2) blur(8px);                           /* Difuminado del header */
 
   /* === Transitions === */
   --transition-fast: all 0.25s ease-in-out;
@@ -235,7 +562,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.85rem 1.75rem;
   border: 2px solid var(--color-accent);
   border-radius: var(--radius-md);
-  color: var(--color-accent);
+  color: var(--color-accent-contrast);
   background: transparent;
   transition: var(--transition-medium);
   position: relative;
